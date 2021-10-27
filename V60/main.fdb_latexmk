@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1635256154 "/home/daniel/Documents/GitHub/FP/V60/main.tex" "/home/daniel/Documents/GitHub/FP/V60/main.pdf" "main" 1635256154
+["pdflatex"] 1635322742 "/home/daniel/Documents/GitHub/FP/V60/main.tex" "/home/daniel/Documents/GitHub/FP/V60/main.pdf" "main" 1635322742
   "/home/daniel/.local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/home/daniel/.local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/home/daniel/.local/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -52,12 +52,12 @@
   "/home/daniel/.local/texlive/2020/texmf-dist/web2c/texmf.cnf" 1598393674 39451 15a3ebee027466ecb89701aa91dfebaf ""
   "/home/daniel/.local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1608483818 2553384 182ffb3f2aadc8acf1dbb263d60b22a2 ""
   "/home/daniel/.local/texlive/2020/texmf.cnf" 1608483767 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "/home/daniel/Documents/GitHub/FP/V60/main.aux" 1635256154 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/daniel/Documents/GitHub/FP/V60/main.aux" 1635322742 8 a94a2480d3289e625eea47cd1b285758 ""
   "/home/daniel/Documents/GitHub/FP/V60/main.tex" 1635233558 253 2e1cf4f3583088e75e1407dc6c119b56 ""
-  "header.tex" 1635233558 3875 40c140cc483b2d64eafb7e2861211ae9 ""
-  "main.aux" 1635256154 8 a94a2480d3289e625eea47cd1b285758 ""
+  "header.tex" 1635321245 3876 4a11139323413d23f5ab5d0c40981f26 ""
+  "main.aux" 1635322742 8 a94a2480d3289e625eea47cd1b285758 ""
   "main.tex" 1635233558 253 2e1cf4f3583088e75e1407dc6c119b56 ""
   (generated)
   "/home/daniel/Documents/GitHub/FP/V60/main.log"
-  "main.log"
   "/home/daniel/Documents/GitHub/FP/V60/main.pdf"
+  "main.log"
