@@ -4,20 +4,43 @@ and an optical resonator.
 Stimulated emission in the gain medium amplifies incoming light. For these atomic transitions,
 which determine the laser spectrum, it is crucial to create population inversion in the 
 gain medium. This is achieved by the pump source, which constantly supplies energy.
-The resonator
-
+The amplification grows exponentially with the travel distrance of the photons through 
+the gain medium. Therefore the gain medium is placed in a resonator consisting of two 
+parallel reflecting elements so that the photons can pass the gain medium multiple times.
 
 \subsection*{Atomic Transitions}
-In atomic transitions between two discrete energy levels $E_1$ and $E_2$ the three different processes 
-absorption, spontaneous emission and stimulated emission have to be distinguished as shown 
-in Fig. %\ref{fig:transitions}.
-Spontaneous emission is the transition from a state of higher energy to a state of lower 
-energy in which the energy difference between the two states in released form of a photon.
+In atomic transitions between different discrete energy levels the three processes 
+absorption, spontaneous emission and stimulated emission have to be distinguished, which are
+shown schematically for a two-level system in Fig. \ref{fig:transitions}.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\linewidth]{Bilder/transitions.png}
+    \caption{Atomic transitions between two energy levels \cite{eichler}.}
+    \label{fig:transitions}
+\end{figure}
+Spontaneous emission is the transition from a level of higher energy to a level of lower 
+energy in which the energy difference between the two levels in released form of a photon.
 If the transition is not spontaneous but induced by an incoming photon the process is 
 called stimulated emission. 
-Absorption occurs when an incoming photon is absorbed by the system and causes a transition 
-from the lower to the higher energy state. 
+Absorption occurs when an incoming photon causes a transition 
+from the lower to the higher energy level and is absorbed in the process. 
 In both stimulated emission and absorption the energy of the photon must correspond to the energy 
-difference of the two energy states.
-Light is amplified when stimulated emission occurs more often than spontaneous emission. 
-The number of emitted photons doubles
+difference of the two energy levels.
+
+Since the number of photons doubles in stimulated emission, light is amplified when 
+stimulated emission occurs more often than spontaneous emission, for which population inversion
+is necessary. Population inversion is created by the pump source that adds energy to the 
+system and thus increases the occupation probability.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+Population inversion is not possible in a two-level system where only an equal occupation of 
+both levels can be achieved because of the short relaxation time due to spontaneous emission.
+Therefore at least three levels are needed. In this case, absorption occurs between the first (lowest)
+and the third (highest) level, $E_1 \rightarrow E_3$. If the relaxation time of $E_3$ is 
+much shorter than the relaxation time of $E_2$, a population inversion between the levels 
+$E_1$ and $E_2$ is realised.
+
+\subsection*{Diode Lasers}
+In a diode laser is semiconductor is used as the medium and a electric current is used as a 
+pump source. Light is emitted due to recombination of electron-hole pairs at the p-n-junction.
+The wavelength of the resonator corresponds to the band gap of the material.
+Two parallel layers of the medium, one of the only partially reflecting, function as the 
+resonator, or internal cavity.
