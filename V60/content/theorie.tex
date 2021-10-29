@@ -11,11 +11,11 @@ parallel reflecting elements so that the photons can pass the gain medium multip
 \subsection*{Atomic Transitions}
 In atomic transitions between different discrete energy levels the three processes 
 absorption, spontaneous emission and stimulated emission have to be distinguished, which are
-shown schematically for a two-level system in Fig. \ref{fig:transitions}.
+shown schematically for a three-level system in Fig. \ref{fig:transitions}.
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\linewidth]{Bilder/transitions.png}
-    \caption{Atomic transitions between two energy levels \cite{eichler}.}
+    \caption{Atomic transitions between two energy levels in a three-level system \cite{eichler}.}
     \label{fig:transitions}
 \end{figure}
 Spontaneous emission is the transition from a level of higher energy to a level of lower 
@@ -28,9 +28,9 @@ In both stimulated emission and absorption the energy of the photon must corresp
 difference of the two energy levels.
 
 Since the number of photons doubles in stimulated emission, light is amplified when 
-stimulated emission occurs more often than spontaneous emission, for which population inversion
-is necessary. Population inversion is created by the pump source that adds energy to the 
-system and thus increases the occupation probability.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+stimulated emission occurs more often than spontaneous emission. For that, population inversion
+is necessary and created by the pump source that adds energy to the 
+system and thus increases the occupation probability of the upper level.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 Population inversion is not possible in a two-level system where only an equal occupation of 
 both levels can be achieved because of the short relaxation time due to spontaneous emission.
 Therefore at least three levels are needed. In this case, absorption occurs between the first (lowest)
@@ -39,8 +39,41 @@ much shorter than the relaxation time of $E_2$, a population inversion between t
 $E_1$ and $E_2$ is realised.
 
 \subsection*{Diode Lasers}
-In a diode laser is semiconductor is used as the medium and a electric current is used as a 
-pump source. Light is emitted due to recombination of electron-hole pairs at the p-n-junction.
+In a diode laser a semiconductor is used as the medium and a electric current is used as a 
+pump source. 
+%The conductivity of a material depends on the occupation of the conducting band and the 
+In semiconducting materials the band gap between the conducting band and the valence band is very small. %with typical energies of a few electronvolts 
+%with the Fermi level lying between those bands. 
+At temperatures close to $T = 0 \text{ K}$, the conducting band is empty and the valence 
+band fully occupied so that the material is isolating. 
+By heating, electrons can be excited from the vanlence band to the conducting band, leaving
+a hole in the valence band, and the material becomes conductive. 
+The conductive properties of a semiconductor can also be increased by doping the material,
+that is, introducing impurities into the crystal structure. These impurities, called dopants, are atoms with a 
+different number of valence electrons than the semiconducting material and 
+can either be donors and acceptors. 
+Donors have an additional valence electron that can propagate freely in the conducting band,
+the material is then n-doted. 
+Acceptors are missing one valence electron and create holes as a positive charge carrier, the 
+material is p-doted.
+%If donors are introduced into the material, it is n-doted, if acceptors are introduced, it is p-doted.
+In both cases the energy bands are shifted relative to the Fermi level, resulting in an 
+increased conductivity.
+
+Connecting p- and n-doted areas creates a p-n-junction. 
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.6\linewidth]{Bilder/semiconductor.png}
+    \caption{Schematic illustration of a diode laser as a p-n-junction. 
+    Top: Energy bands of seperated semiconductors with n- (left) and p-doping (right). $F_C$ and $F_V$ are the Fermi-Levels
+    corresponding to the conduction (CB) and valence band (VB).
+    Middle: Space charge densitiy distribution resulting from a diffusion of 
+    electrons into the p-region and a diffusion of holes into the n-region 
+    when connecting n- and p-type semiconductors.
+    Bottom: Electron energy in the connected n- and p-doped areas \cite{eichler}.}
+    \label{fig:semiconductor}
+\end{figure}
+Light is emitted due to recombination of electron-hole pairs at the p-n-junction.
 The wavelength of the resonator corresponds to the band gap of the material.
 Two parallel layers of the medium, one of the only partially reflecting, function as the 
 resonator, or internal cavity.
