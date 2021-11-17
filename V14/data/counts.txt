@@ -1,0 +1,22 @@
+Würfel 1: Aluminium
+37600
+
+Würfel 3: Schweres Material
+I2: 1301
+I5: 1300
+I7: 1164
+I8: 594
+
+Würfel 4: Materialmischung
+I1:   30557
+I2:   1612
+I3:   30303
+I4:   10235
+I5:   9544
+I6:   10361
+I7:   6993
+I8:   6196
+I9:   9419
+I10:  7478
+I11:  6377
+I12:  9861
