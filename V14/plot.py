@@ -1,45 +1,41 @@
 import numpy as np
+import uncertainties
 from scipy.optimize import curve_fit
 import scipy.constants as const
 import matplotlib.pyplot as plt
 from matplotlib import rc
 from uncertainties import ufloat
 import uncertainties.unumpy as unp
+from uncertainties.unumpy import std_devs as stds
+from uncertainties.unumpy import nominal_values as noms
 import math
 rc('text', usetex=True)
 
-#--------------------Daten auslesen--------------------
+#--------------------Daten auslesen--------------------#
 
-Leermessung = np.genfromtxt('data/leermessung.Spe', unpack=True)/300
+
+Leermessung = np.genfromtxt('data/leermessung.Spe', unpack=True)/300 #wird nicht gebraucht
 
 #Ausgangsintensitäten 
+N_W3 = np.array([1301, 594, 1164])
+T_W3 = np.array([241.24, 241.24, 241.24])
+
 I_W3 = np.zeros(12)
-I_W3[[0, 1, 2, 3, 4, 5]] = 1301/241.24
-I_W3[[7, 10]] = 594/241.24
-I_W3[[6, 8, 9, 11]] = 1164/241.24
-
-#I_W3 = np.zeros(3)
-#I_W3[[0]] = 1301/241.24
-#I_W3[[2]] = 594/241.24
-#I_W3[[1]] = 1164/241.24
-
-I_W4 = np.zeros(12)
-I_W4[[0]] = 30557/241.80
-I_W4[[1]] = 1612/241.46
-I_W4[[2]] = 30303/241.78
-I_W4[[3]] = 10235/241.46
-I_W4[[4]] = 9544/241.46
-I_W4[[5]] = 10361/241.46
-I_W4[[6]] = 6993/241.46
-I_W4[[7]] = 6196/241.46
-I_W4[[8]] = 9419/241.46
-I_W4[[9]] = 7478/241.46
-I_W4[[10]] = 6377/241.46
-I_W4[[11]] = 9861/241.46
-
-#Fehler 
+I_W3[[0, 1, 2, 3, 4, 5]] = N_W3[0]/T_W3[0]   
+I_W3[[7, 10]] = N_W3[1]/T_W3[1]              
+I_W3[[6, 8, 9, 11]] = N_W3[2]/T_W3[2]        
 I_W3 = unp.uarray(I_W3, np.sqrt(I_W3))
+
+print(f"\n Intensitäten Würfel 3: \n {I_W3}")
+
+N_W4 = np.array([30557, 1612, 30303, 10235, 9544, 10361, 6993, 6196, 9419, 7478, 6377, 9861]) 
+T_W4 = np.array([241.80, 241.42, 241.78, 241.46, 241.46, 241.48, 241.48, 241.46, 241.56, 241.50, 241.50, 241.54]) 
+
+I_W4 = N_W4/T_W4
 I_W4 = unp.uarray(I_W4, np.sqrt(I_W4))
+
+print(f"\n Intensitäten Würfel 4: \n {I_W4}")
+
 
 #--------------------Matrix A--------------------#
 
@@ -57,27 +53,34 @@ A = np.matrix([[1,1,1,0,0,0,0,0,0],  #1
                [0,0,s,0,s,0,s,0,0],  #11
                [0,0,0,0,0,s,0,s,0]]) #12
 
-#A_2 = np.matrix([[3, 0, 0], [0, 2*s, 0], [0, 0, 3*s]])
-
+A_T = np.transpose(A)
 
 #--------------------Funktionen definieren--------------------#
 
-def Absorptionskoeffizient(A, I):
-    A_T = np.transpose(A)
-    A_I = np.linalg.inv(A_T @ A)
-    A_P = A_I @ A_T
-    mu = np.dot(A_P, I) #d = 1cm implizit
-    mu = np.transpose(mu) #Ausgabe
+def Absorptionskoeffizient(V_I, V_Abk, I):
+    V_I_Inv = np.linalg.inv(V_I)
+    Mat_Prod = (V_Abk * A_T) * V_I_Inv
+    mu = np.dot(Mat_Prod, I)
+    mu = np.transpose(mu)
     return np.array(mu)
-    #mu = np.linalg.lstsq(A,I)
 
 def Intensitäten(I_W, I_Aluminium):
     Intensitäten = unp.log(I_Aluminium/I_W)
     return np.array(Intensitäten)
 
-#------------------------------------------------------------------------------------
+def Kovarianz_Int(I):
+    V = np.zeros((len(I), len(I)))
+    np.fill_diagonal(V, I**2)
+    return np.matrix(V)
 
-#--------------------Leermessung und Plot des Absorptionsspektrums--------------------
+def Kovarianz_Abk(V):
+    V_Inv = np.linalg.inv(V)
+    Mat_Prod = (A_T * (V_Inv * A))
+    return np.linalg.inv(Mat_Prod)
+
+#-------------------------------------------------------------------------------------#
+
+#--------------------Leermessung und Plot des Absorptionsspektrums--------------------#
 
 Kanal = np.linspace(0, len(Leermessung)-1, len(Leermessung))
 
@@ -95,26 +98,45 @@ plt.clf()
 #--------------------Würfel 1: Aluminium--------------------#
 
 C_Aluminium = np.ones(12)*37660
-t_Aluminium = 241.69 #s
+t_Aluminium = 241.69 
 I_Aluminium = C_Aluminium/t_Aluminium #Eingangsintensität
-#I_Aluminium = np.array(I_Aluminium)
 I_Aluminium = unp.uarray(I_Aluminium, np.sqrt(I_Aluminium))
-
-#C_Aluminium_2 = np.ones(3)*37660
-#t_Aluminium_2 = 241.69 #s
-#I_Aluminium_2 = C_Aluminium_2/t_Aluminium_2 #Eingangsintensität
-#I_Aluminium_2 = unp.uarray(I_Aluminium_2, np.sqrt(I_Aluminium_2))
 
 #--------------------Würfel 3: Schweres Material--------------------#
 
 Int_W3 = Intensitäten(I_W3, I_Aluminium)
-AbK_W3 = Absorptionskoeffizient(A, Int_W3)
-print(AbK_W3)
-#print(AbK_W3[0])
+
+#Messunsicherheiten und Varianzen
+V_I_W3 = Kovarianz_Int(stds(Int_W3)) #Matrix mit dem Quadrat der Standardabweichung = Varianz auf der Diagonalen
+V_Abk_W3 = Kovarianz_Abk(V_I_W3)
+Abk_W3 = Absorptionskoeffizient(V_I_W3, V_Abk_W3, noms(Int_W3)) #mu
+Abk_W3_Err = np.array(np.sqrt(np.diag(V_Abk_W3)))
+
+print(f"\n Absorptionskoeffizienten Würfel 3: \n {Abk_W3} \n {Abk_W3_Err}")
 
 #--------------------Würfel 4: Unbekanntes Material--------------------#
 
 Int_W4 = Intensitäten(I_W4, I_Aluminium)
-AbK_W4 = Absorptionskoeffizient(A, Int_W4)
-print(AbK_W4)
-#print(AbK_W4[0])
+
+#Messunsicherheiten und Varianzen
+V_I_W4 = Kovarianz_Int(stds(Int_W4)) #Matrix mit dem Quadrat der Standardabweichung = Varianz auf der Diagonalen
+V_Abk_W4 = Kovarianz_Abk(V_I_W4)
+Abk_W4 = Absorptionskoeffizient(V_I_W4, V_Abk_W4, noms(Int_W4)) #mu
+Abk_W4_Err = np.array(np.sqrt(np.diag(V_Abk_W4)))
+
+print(f"\n Absorptionskoeffizienten Würfel 4: \n {Abk_W4} \n {Abk_W4_Err}")
+
+#--------------------Vergleich mit Literaturwerten--------------------#
+
+Eisen = 0.606
+Aluminium = 0.211
+Blei = 1.419
+Messing = 0.683
+Delrin = 0.121
+
+print(f"\n")
+print(f"Abweichung zu Eisen: \n {Abk_W4 - Eisen} \n")
+print(f"Abweichung zu Aluminium: \n {Abk_W4 - Aluminium} \n")
+print(f"Abweichung zu Blei: \n {Abk_W4 - Blei} \n")
+print(f"Abweichung zu Messing: \n {Abk_W4 - Messing} \n")
+print(f"Abweichung zu Delrin: \n {Abk_W4 - Delrin} \n")
