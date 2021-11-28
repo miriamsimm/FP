@@ -25,7 +25,7 @@ In Abbildung \ref{fig:sigma} ist der gesamte Wirkungsquerschnitt von Blei und de
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{content/Absorb.png}
-    \caption{\% \cite{pdg}}
+    \caption{Der Wirkungsquerschnitt von Blei als funktion der Energie. Hier ist der gesamte Absorptionskoeffizient und die einzelnen Bestandteile abgebildet. Bei Energien von $E_{\gamma} = \SI{662}{\keV}$ dominieren die im Text beschriebenen Wechselwirkungen. Hier beschreibt $\kappa_nuc$ bzw.$ \kappa_{e}$ die Wechselwirkung im elektrischen Feld der Kerne bzw. elektronen und $\sigma_{g.d.r}$ photonukleare Wechselwirkungen, welche alle drei in diesem Versuch keine Rolle spielen.  \cite{pdg}}
     \label{fig:sigma}
 \end{figure}
 \subsection{Szintillationsdetektoren}
@@ -39,7 +39,7 @@ In Abbildung \ref{fig:detektor} ist eine schematische Abbildung eines Szintillat
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{content/detektor.png}
-    \caption{\%\cite{detektor}}
+    \caption{Schematische Abbildung eines Szintillationsdetektors. \cite{detektor}}
     \label{fig:detektor}
 \end{figure}
 \subsection{Methode der kleinsten Quadrate}
@@ -51,4 +51,13 @@ Das Gleichungssystem folgt aus Gleichung \ref{eqn:Absorb} und lässt sich in Mat
 schreiben.
 Hier ist $D$ eine Matrix, welche die Längen des Strahlenganges im Würfel beschreibt und $\vec{\mu}$ ein Vektor mit den Absorptionskoeffizienten der verschiedenen Materialen.
 In dem Versuch werden mehr Messungen genommen, als Absorptionskoeffizienten in dem Würfel vorkommen. Dies führt dazu, dass das Gleichungssystem überbestimmt ist und die Methode der kleinsten Quadrate angewendet werden kann.
-Zum lösen des Systems wird die Funktion \% \% \% in python verwendet, welche einem die Werte $\mu_i$ und deren Standardabweichungen liefert.
+Die Lösung\cite{stat} ist dann gegeben durch 
+\begin{equation*}
+    \vec{\mu} = \left(D^T V_a^{-1} D \right)^- \left( D^T V_a^{-1} \vec{a}\right),
+\end{equation*}
+wobei $V_a$ die Kovarianzmatrix von $\vec{a}$ ist.
+Um statische Unsicherheiten zu bestimmen wird noch die Kovarianzmatrix\cite{stat} von $\vec{\mu}$
+\begin{equation*}
+    V_{\mu} = \left(D^T V_a^{-1} D \right)^{-1}
+\end{equation*}
+benötigt.
