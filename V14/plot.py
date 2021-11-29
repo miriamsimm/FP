@@ -14,7 +14,7 @@ rc('text', usetex=True)
 #--------------------Daten auslesen--------------------#
 
 
-Leermessung = np.genfromtxt('data/leermessung.Spe', unpack=True)/300 #wird nicht gebraucht
+Leermessung = np.genfromtxt('data/leermessung.Spe', unpack=True)/300 
 
 #Ausgangsintensitäten 
 N_W3 = np.array([1301, 594, 1164])
@@ -86,7 +86,7 @@ Kanal = np.linspace(0, len(Leermessung)-1, len(Leermessung))
 
 plt.plot(Kanal[0:200], Leermessung[0:200], linewidth = 1, label = 'Messwerte')
 plt.xlabel(r'$\mathrm{Kanalnummer}$')
-plt.ylabel(r'$\textrm{Zählrate}\, / \, s^{-1}$')
+plt.ylabel(r'$\textrm{ZählCounts}\, / \, s^{-1}$')
 plt.axvline(128, linewidth=1, ymin=0, ymax=0.953, color='g', label = '662 keV')
 #plt.plot(128, 19, marker='o', markersize=3, color = 'g')
 plt.xlim(20, 200)

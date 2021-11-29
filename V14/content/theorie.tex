@@ -52,9 +52,10 @@ schreiben.
 Hier ist $D$ eine Matrix, welche die Längen des Strahlenganges im Würfel beschreibt und $\vec{\mu}$ ein Vektor mit den Absorptionskoeffizienten der verschiedenen Materialen.
 In dem Versuch werden mehr Messungen genommen, als Absorptionskoeffizienten in dem Würfel vorkommen. Dies führt dazu, dass das Gleichungssystem überbestimmt ist und die Methode der kleinsten Quadrate angewendet werden kann.
 Die Lösung\cite{stat} ist dann gegeben durch 
-\begin{equation*}
+\begin{equation}
+    \label{eq:mu}
     \vec{\mu} = \left(D^T V_a^{-1} D \right)^- \left( D^T V_a^{-1} \vec{a}\right),
-\end{equation*}
+\end{equation}
 wobei $V_a$ die Kovarianzmatrix von $\vec{a}$ ist.
 Um statische Unsicherheiten zu bestimmen wird noch die Kovarianzmatrix\cite{stat} von $\vec{\mu}$
 \begin{equation*}
