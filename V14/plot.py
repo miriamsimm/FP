@@ -111,8 +111,14 @@ V_I_W3 = Kovarianz_Int(stds(Int_W3)) #Matrix mit dem Quadrat der Standardabweich
 V_Abk_W3 = Kovarianz_Abk(V_I_W3)
 Abk_W3 = Absorptionskoeffizient(V_I_W3, V_Abk_W3, noms(Int_W3)) #mu
 Abk_W3_Err = np.array(np.sqrt(np.diag(V_Abk_W3)))
+Abk_W3 = np.delete(Abk_W3, [2, 3, 5, 6, 7, 8])
+Abk_W3_Err = np.delete(Abk_W3_Err, [2, 3, 5, 6, 7, 8])
 
 print(f"\n Absorptionskoeffizienten Würfel 3: \n {Abk_W3} \n {Abk_W3_Err}")
+
+Abk_W3_Ges = unp.uarray(Abk_W3, Abk_W3_Err)
+Abk_W3_Mean = np.mean(Abk_W3)
+print(f"\n Absorptionskoeffizienten Würfel 3 Mittelwert: \n {Abk_W3_Mean}")
 
 #--------------------Würfel 4: Unbekanntes Material--------------------#
 
@@ -125,6 +131,10 @@ Abk_W4 = Absorptionskoeffizient(V_I_W4, V_Abk_W4, noms(Int_W4)) #mu
 Abk_W4_Err = np.array(np.sqrt(np.diag(V_Abk_W4)))
 
 print(f"\n Absorptionskoeffizienten Würfel 4: \n {Abk_W4} \n {Abk_W4_Err}")
+
+Abk_W4_Ges = unp.uarray(Abk_W4, Abk_W4_Err)
+Abk_W4_Mean = np.mean(Abk_W4)
+print(f"\n Absorptionskoeffizienten Würfel 4 Mittelwert: \n {Abk_W4_Mean}")
 
 #--------------------Vergleich mit Literaturwerten--------------------#
 

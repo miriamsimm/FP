@@ -26,26 +26,29 @@ Würfel 3 besteht nur aus einem unbekannten Material, Würfel 4 aus zwei unbekan
 Die gemessenen Counts $C$, Messdauer $t$, Zählraten $N$ sowie die entsprechenden Projektionen der Würfel 3 und 4 
 befinden sich in den Tabellen \ref{tab:W3} und \ref{tab:W4}. Die Zählraten $N$ werden mit dem statistischen Fehler $\sqrt{N}$
 belegt, die Messdauer wird als fehlerfrei angenommen.
-Bei der Untersuchung von Würfel 1 wurden bei einer Messdauer von $241.62 \text{ s}$ 
+Bei der Untersuchung von Würfel 1 werden bei einer Messdauer von $241.62 \text{ s}$ 
 \begin{equation*}
     C = 37660
 \end{equation*}
 Counts gemessen.  
-Die Berechnung der Absorptionskoeffizienten erfolgt über Gleichung \ref{eq:mu}. Über die Kovarianzmatrix $V$ ergeben sich die entsprechenden 
-Unsicherheiten $\sigma_I$ als Wurzeln der Diagonalelemente.
+Die Berechnung der Absorptionskoeffizienten $\mu_i$ erfolgt über Gleichung \ref{eq:mu}. Über die Kovarianzmatrix $V$ ergeben sich die entsprechenden 
+Unsicherheiten $\sigma_I$ als Wurzeln der Diagonalelemente
+\begin{equation*}
+    \sigma_{\mu_i} = \sqrt{V[\vec{\mu}_{ii}]} 
+\end{equation*}
 \FloatBarrier
 \begin{table}[h]
     \centering
     \caption{Würfel 3, Schweres Material NOCH ÄNDERN}
     %\sisetup{table-format=1.2}
     \label{tab:W3}
-    \begin{tabular}{c S[table-format=4.0] S[table-format=3.2] S[table-format=1.2]@{${}\pm{}$} S[table-format=1.2]}
+    \begin{tabular}{c S[table-format=4.0] S[table-format=3.2] S[table-format=1.2]@{${}\pm{}$} S[table-format=1.2] S[table-format=1.3]@{${}\pm{}$} S[table-format=1.3]}
         \toprule
-        {Projektion} & {$C$} & {$t/\si{\s}$} & \multicolumn{2}{c}{$N/\si{\s}^{-1}$} \\
+        {Projektion} & {$C$} & {$t/\si{\s}$} & \multicolumn{2}{c}{$N/\si{\s}^{-1}$} & \multicolumn{2}{c}{$\mu /\si{\cm}^{-1}$} \\
         \midrule
-        $I_2$ & 1301 & 241.24 & 5.39 & 2.32 \\
-        $I_7$ & 1164 & 241.24 & 4.83 & 2.20 \\
-        $I_8$ & 594  & 241.24 & 2.46 & 1.57 \\
+        $I_2$ & 1301 & 241.24 & 5.39 & 2.32 & 1.055 & 0.311\\
+        $I_7$ & 1164 & 241.24 & 4.83 & 2.20 & 1.236 & 0.219\\
+        $I_8$ & 594  & 241.24 & 2.46 & 1.57 & 0.858 & 0.250\\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -54,15 +57,48 @@ Unsicherheiten $\sigma_I$ als Wurzeln der Diagonalelemente.
 \FloatBarrier
 \begin{table}[h]
     \centering
-    \caption{Würfel 3, Schweres Material NOCH ÄNDERN}
+    \caption{Würfel 4, Unbekanntes Material NOCH ÄNDERN}
     %\sisetup{table-format=1.2}
-    \label{tab:W3}
-    \begin{tabular}{c S[table-format=4.0] S[table-format=3.2] S[table-format=1.2]@{${}\pm{}$} S[table-format=1.2]}
+    \label{tab:W4}
+    \begin{tabular}{c S[table-format=5.0] S[table-format=3.2] S[table-format=3.2]@{${}\pm{}$} S[table-format=3.2]}
         \toprule
         {Projektion} & {$C$} & {$t/\si{\s}$} & \multicolumn{2}{c}{$N/\si{\s}^{-1}$} \\
         \midrule
-        $I_2$ & 1301 & 241.24 & 5.39 & 2.32 \\
-
+        $I_1$    & 30557 & 241.80 & 126.37 & 11.24 \\
+        $I_2$    & 1612  & 241.42 & 6.68   & 2.58  \\
+        $I_3$    & 30303 & 241.78 & 125.33 & 11.20 \\
+        $I_4$    & 10235 & 241.46 & 42.39  & 6.51  \\
+        $I_5$    & 9544  & 241.46 & 39.53  & 6.29  \\
+        $I_6$    & 10361 & 241.48 & 42.91  & 6.55  \\
+        $I_7$    & 6993  & 241.48 & 28.96  & 5.38  \\
+        $I_8$    & 6196  & 241.46 & 25.66  & 5.07  \\
+        $I_9$    & 9419  & 241.56 & 38.99  & 6.24  \\
+        $I_{10}$ & 7478  & 241.50 & 30.96  & 5.56  \\
+        $I_{11}$ & 6377  & 241.50 & 26.41  & 5.14  \\
+        $I_{12}$ & 9861  & 241.54 & 40.83  & 6.39  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\FloatBarrier
+\noindent
+\FloatBarrier
+\begin{table}[h]
+    \centering
+    \caption{Würfel 4, Unbekanntes Material Absorptionskoeffizienten NOCH ÄNDERN}
+    \label{tab:W4_Abk}
+    \begin{tabular}{c S[table-format=1.3]@{${}\pm{}$} S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3]}
+        \toprule
+        {Würfel} & \multicolumn{2}{c}{$\mu /\si{\cm}^{-1}$} & {$|\Delta {\mu_\text{Eisen, Lit}}|$} & {$|\Delta {\mu_\text{Aluminium, Lit}}|$} & {$|\Delta {\mu_\text{Blei, Lit}}|$} & {$|\Delta {\mu_\text{Messing, Lit}}|$} & {$|\Delta {\mu_\text{Delrin, Lit}}|$} \\
+        \midrule
+        $\mu_1$ & 0.042  & 0.108 & 0.564 & 0.169 & 1.377 & 0.641 & 0.079 \\
+        $\mu_2$ & 0.161  & 0.090 & 0.445 & 0.050 & 1.258 & 0.522 & 0.040 \\
+        $\mu_3$ & 0.024  & 0.109 & 0.582 & 0.187 & 1.395 & 0.659 & 0.097 \\
+        $\mu_4$ & 1.030  & 0.095 & 0.424 & 0.819 & 0.389 & 0.347 & 0.909 \\
+        $\mu_5$ & 1.132  & 0.101 & 0.526 & 0.921 & 0.287 & 0.449 & 1.011 \\
+        $\mu_6$ & 1.033  & 0.096 & 0.427 & 0.822 & 0.386 & 0.350 & 0.912 \\
+        $\mu_7$ & 0.139  & 0.108 & 0.467 & 0.072 & 1.280 & 0.544 & 0.018 \\
+        $\mu_8$ & -0.047 & 0.087 & 0.653 & 0.258 & 1.466 & 0.730 & 0.168 \\
+        $\mu_9$ & 0.143  & 0.108 & 0.463 & 0.068 & 1.276 & 0.540 & 0.022 \\
         \bottomrule
     \end{tabular}
 \end{table}
