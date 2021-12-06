@@ -60,7 +60,7 @@ Unsicherheiten $\sigma_I$ als Wurzeln der Diagonalelemente
     \caption{Würfel 4, Unbekanntes Material NOCH ÄNDERN}
     %\sisetup{table-format=1.2}
     \label{tab:W4}
-    \begin{tabular}{c S[table-format=5.0] S[table-format=3.2] S[table-format=3.2]@{${}\pm{}$} S[table-format=3.2]}
+    \begin{tabular}{c S[table-format=5.0] S[table-format=3.2] S[table-format=3.2]@{${}\pm{}$} S[table-format=2.2]}
         \toprule
         {Projektion} & {$C$} & {$t/\si{\s}$} & \multicolumn{2}{c}{$N/\si{\s}^{-1}$} \\
         \midrule
@@ -86,21 +86,81 @@ Unsicherheiten $\sigma_I$ als Wurzeln der Diagonalelemente
     \centering
     \caption{Würfel 4, Unbekanntes Material Absorptionskoeffizienten NOCH ÄNDERN}
     \label{tab:W4_Abk}
-    \begin{tabular}{c S[table-format=1.3]@{${}\pm{}$} S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3]}
+    \begin{tabular}{c S[table-format=1.3]@{${}\pm{}$} S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3]}
         \toprule
-        {Würfel} & \multicolumn{2}{c}{$\mu /\si{\cm}^{-1}$} & {$|\Delta {\mu_\text{Eisen, Lit}}|$} & {$|\Delta {\mu_\text{Aluminium, Lit}}|$} & {$|\Delta {\mu_\text{Blei, Lit}}|$} & {$|\Delta {\mu_\text{Messing, Lit}}|$} & {$|\Delta {\mu_\text{Delrin, Lit}}|$} \\
+        {} & \multicolumn{2}{c}{$\mu /\si{\cm}^{-1}$} & {$|\Delta {\mu_\text{Fe, Lit}}|$} & {$|\Delta {\mu_\text{Al, Lit}}|$} & {$|\Delta {\mu_\text{Pb, Lit}}|$} & {$|\Delta {\mu_\text{Pb, Exp}}|$} & {$|\Delta {\mu_\text{CuZn, Lit}}|$} & {$|\Delta {\mu_\text{POM, Lit}}|$} \\
         \midrule
-        $\mu_1$ & 0.042  & 0.108 & 0.564 & 0.169 & 1.377 & 0.641 & 0.079 \\
-        $\mu_2$ & 0.161  & 0.090 & 0.445 & 0.050 & 1.258 & 0.522 & 0.040 \\
-        $\mu_3$ & 0.024  & 0.109 & 0.582 & 0.187 & 1.395 & 0.659 & 0.097 \\
-        $\mu_4$ & 1.030  & 0.095 & 0.424 & 0.819 & 0.389 & 0.347 & 0.909 \\
-        $\mu_5$ & 1.132  & 0.101 & 0.526 & 0.921 & 0.287 & 0.449 & 1.011 \\
-        $\mu_6$ & 1.033  & 0.096 & 0.427 & 0.822 & 0.386 & 0.350 & 0.912 \\
-        $\mu_7$ & 0.139  & 0.108 & 0.467 & 0.072 & 1.280 & 0.544 & 0.018 \\
-        $\mu_8$ & -0.047 & 0.087 & 0.653 & 0.258 & 1.466 & 0.730 & 0.168 \\
-        $\mu_9$ & 0.143  & 0.108 & 0.463 & 0.068 & 1.276 & 0.540 & 0.022 \\
+        $\mu_1$ & 0.042  & 0.108 & 0.564 & 0.169 & 1.377 & 1.008 & 0.641 & \textbf{0.079} \\
+        $\mu_2$ & 0.161  & 0.090 & 0.445 & 0.050 & 1.258 & 0.889 & 0.522 & \textbf{0.040} \\
+        $\mu_3$ & 0.024  & 0.109 & 0.582 & 0.187 & 1.395 & 1.026 & 0.659 & \textbf{0.097} \\
+        $\mu_4$ & 1.030  & 0.095 & 0.424 & 0.819 & 0.389 & \textbf{0.020} & 0.347 & 0.909 \\
+        $\mu_5$ & 1.132  & 0.101 & 0.526 & 0.921 & 0.287 & \textbf{0.082} & 0.449 & 1.011 \\
+        $\mu_6$ & 1.033  & 0.096 & 0.427 & 0.822 & 0.386 & \textbf{0.017} & 0.350 & 0.912 \\
+        $\mu_7$ & 0.139  & 0.108 & 0.467 & 0.072 & 1.280 & 0.911 & 0.544 & \textbf{0.018} \\
+        $\mu_8$ & -0.047 & 0.087 & 0.653 & 0.258 & 1.466 & 1.097 & 0.730 & \textbf{0.168} \\
+        $\mu_9$ & 0.143  & 0.108 & 0.463 & 0.068 & 1.276 & 0.907 & 0.540 & \textbf{0.022} \\
         \bottomrule
     \end{tabular}
 \end{table}
 \FloatBarrier
 \noindent
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw[step = 2cm,] (0,0) grid +(6,6);
+        \node at (1,1) {Delrin};
+        \node at (1,3) {Blei};
+        \node at (1,5) {Delrin};
+        \node at (3,1) {Delrin};
+        \node at (3,3) {Blei};
+        \node at (3,5) {Delrin};
+        \node at (5,1) {Delrin};
+        \node at (5,3) {Blei};
+        \node at (5,5) {Delrin};
+    \end{tikzpicture}
+    \caption{}
+    \label{fig:tikz2}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw[step = 2cm] (0,0) grid +(6,6);
+        \draw[->][cyan] (-0.5,-0.5)--(6.5,6.5);
+        \node at (6.75,6.75) {$I_{11}$};
+        \draw[->][cyan] (-0.5,1.5)--(4.5,6.5);
+        \node at (4.5,6.75) {$I_{10}$};
+        \draw[->][cyan] (1.5,-0.5)--(6.5,4.5);
+        \node at (6.8,4.5) {$I_{12}$};
+        \draw[->][violet] (1.5,6.5)--(6.5,1.5);
+        \node at (6.75,1.5) {$I_{7}$};
+        \draw[->][violet] (-0.5,6.5)--(6.5,-0.5);
+        \node at (6.75,-0.5) {$I_{8}$};
+        \draw[->][violet] (-0.5,4.5)--(4.5,-0.5);
+        \node at (4.75,-0.5) {$I_{9}$};
+        \draw[->][teal] (-0.5,5)--(6.5,5);
+        \node at (6.75,5) {$I_{1}$};
+        \draw[->][teal] (-0.5,3)--(6.5,3);
+        \node at (6.75,3) {$I_{2}$};
+        \draw[->][teal] (-0.5,1)--(6.5,1);
+        \node at (6.75,1) {$I_{3}$};
+        \draw[->][purple] (1,-0.5)--(1,6.5);
+        \node at (1,6.75) {$I_{4}$};
+        \draw[->][purple] (3,-0.5)--(3,6.5);
+        \node at (3,6.75) {$I_{5}$};
+        \draw[->][purple] (5,-0.5)--(5,6.5);
+        \node at (5,6.75) {$I_{6}$};
+        \node at (1.3,1.75) {$\symbf{\mu_7}$};
+        \node at (1.3,3.75) {$\symbf{\mu_4}$};
+        \node at (1.3,5.75) {$\symbf{\mu_1}$};
+        \node at (3.3,1.75) {$\symbf{\mu_8}$};
+        \node at (3.3,3.75) {$\symbf{\mu_5}$};
+        \node at (3.3,5.75) {$\symbf{\mu_2}$};
+        \node at (5.3,1.75) {$\symbf{\mu_9}$};
+        \node at (5.3,3.75) {$\symbf{\mu_6}$};
+        \node at (5.3,5.75) {$\symbf{\mu_3}$};
+    \end{tikzpicture}
+    \caption{}
+    \label{fig:tikz1}
+\end{figure}

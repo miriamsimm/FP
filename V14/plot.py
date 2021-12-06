@@ -86,7 +86,7 @@ Kanal = np.linspace(0, len(Leermessung)-1, len(Leermessung))
 
 plt.plot(Kanal[0:200], Leermessung[0:200], linewidth = 1, label = 'Messwerte')
 plt.xlabel(r'$\mathrm{Kanalnummer}$')
-plt.ylabel(r'$\textrm{ZählCounts}\, / \, s^{-1}$')
+plt.ylabel(r'$\textrm{Zählrate}\, / \, s^{-1}$')
 plt.axvline(128, linewidth=1, ymin=0, ymax=0.953, color='g', label = '662 keV')
 #plt.plot(128, 19, marker='o', markersize=3, color = 'g')
 plt.xlim(20, 200)
@@ -117,7 +117,7 @@ Abk_W3_Err = np.delete(Abk_W3_Err, [2, 3, 5, 6, 7, 8])
 print(f"\n Absorptionskoeffizienten Würfel 3: \n {Abk_W3} \n {Abk_W3_Err}")
 
 Abk_W3_Ges = unp.uarray(Abk_W3, Abk_W3_Err)
-Abk_W3_Mean = np.mean(Abk_W3)
+Abk_W3_Mean = np.mean(Abk_W3_Ges)
 print(f"\n Absorptionskoeffizienten Würfel 3 Mittelwert: \n {Abk_W3_Mean}")
 
 #--------------------Würfel 4: Unbekanntes Material--------------------#
@@ -132,21 +132,24 @@ Abk_W4_Err = np.array(np.sqrt(np.diag(V_Abk_W4)))
 
 print(f"\n Absorptionskoeffizienten Würfel 4: \n {Abk_W4} \n {Abk_W4_Err}")
 
-Abk_W4_Ges = unp.uarray(Abk_W4, Abk_W4_Err)
-Abk_W4_Mean = np.mean(Abk_W4)
-print(f"\n Absorptionskoeffizienten Würfel 4 Mittelwert: \n {Abk_W4_Mean}")
+#Abk_W4_Ges = unp.uarray(Abk_W4, Abk_W4_Err)
+#Abk_W4_Mean = np.mean(Abk_W4)
+#print(f"\n Absorptionskoeffizienten Würfel 4 Mittelwert: \n {Abk_W4_Mean}")
 
 #--------------------Vergleich mit Literaturwerten--------------------#
 
 Eisen = 0.606
 Aluminium = 0.211
 Blei = 1.419
+Blei_Exp = 1.05
 Messing = 0.683
 Delrin = 0.121
+
 
 print(f"\n")
 print(f"Abweichung zu Eisen: \n {Abk_W4 - Eisen} \n")
 print(f"Abweichung zu Aluminium: \n {Abk_W4 - Aluminium} \n")
 print(f"Abweichung zu Blei: \n {Abk_W4 - Blei} \n")
+print(f"Abweichung zu Blei experimentell: \n {Abk_W4 - Blei_Exp} \n")
 print(f"Abweichung zu Messing: \n {Abk_W4 - Messing} \n")
 print(f"Abweichung zu Delrin: \n {Abk_W4 - Delrin} \n")
