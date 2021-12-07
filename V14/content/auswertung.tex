@@ -56,11 +56,12 @@ Die gemessenen Counts $C$, Messdauer $t$, Zählraten $N$ sowie die entsprechende
 befinden sich in den Tabellen \ref{tab:W3} und \ref{tab:W4}. In Tabelle \ref{tab:W3} sind zudem die berechneten Absorptionskoeffizienten
 aufgeführt. Die Zählraten $N$ werden mit dem statistischen Fehler $\sqrt{N}$
 belegt, die Messdauer wird als fehlerfrei angenommen.
-Bei der Untersuchung von Würfel 1 werden bei einer Messdauer von $241.62 \text{ s}$ 
+Bei der Untersuchung von Würfel 1 werden bei einer Messdauer von $241.62 \text{ s}$ $C = 37660$
+Counts gemessen, sodass für die Eingangsintensität die Zählrate
 \begin{equation*}
-    C = 37660
+    N_0 = 155,82
 \end{equation*}
-Counts gemessen.  
+verwendet werden kann.
 Die Berechnung der Absorptionskoeffizienten $\mu_i$ erfolgt über Gleichung \ref{eq:mu}. Über die Kovarianzmatrix $V[\vec{\mu}]$ ergeben sich die entsprechenden 
 Unsicherheiten $\sigma_I$ als Wurzeln der Diagonalelemente
 \begin{equation*}
@@ -131,6 +132,7 @@ Tabelle \ref{tab:literatur}, sowie zum experimentell bestimmten Absorptionskoeff
     Für jeden Wert $\mu_i$ ist die betragsmäßig kleinste Abweichung, auf deren Grundlage die Zuordnung zu einem Material erfolgt, durch 
     Fettdruck hervorgehoben.}
     \label{tab:W4_Abk}
+    \scalebox{0.8}{
     \begin{tabular}{c S[table-format=1.3]@{${}\pm{}$} S[table-format=1.3] c c c c c c}
         \toprule
         {} & \multicolumn{2}{c}{$\mu_i /\si{\cm}^{-1}$} & {$|\Delta {\mu_\text{Fe, Lit}}|$} & {$|\Delta {\mu_\text{Al, Lit}}|$} & {$|\Delta {\mu_\text{Pb, Lit}}|$} & {$|\Delta {\mu_\text{Pb, Exp}}|$} & {$|\Delta {\mu_\text{CuZn, Lit}}|$} & {$|\Delta {\mu_{\text{CH}_2\text{O}, \text{Lit}}}|$} \\
@@ -146,6 +148,7 @@ Tabelle \ref{tab:literatur}, sowie zum experimentell bestimmten Absorptionskoeff
         $\mu_9$ & 0.143  & 0.108 & 0.435 & 0.059 & 1.102 & 0.907 & 0.477 & \textbf{0.025} \\
         \bottomrule
     \end{tabular}
+    }
 \end{table}
 \FloatBarrier
 \noindent
@@ -184,59 +187,6 @@ angenommen, dass es sich auch bei dem Material von Elementarwürfel 2 um Delrin 
     \end{tikzpicture}
     \caption{Graphische Darstellung der untersuchten mittleren Ebene von Würfel mit den neun Elementarwürfeln sowie die Zuordnung 
     der Materialien auf Basis der experimentellen Bestimmung der Absorptionskoeffizienten. 
-    Erstellt mit der \LaTeX-Erweiterung TikZ \cite{tantau:2013a.}.}
+    Erstellt mit der \LaTeX-Erweiterung TikZ \cite{tantau:2013a}.}
     \label{fig:tikz2}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}
-
-        \node[fill=gray!5, minimum size=2cm] at (1,1) {};
-        \node[fill=gray!5, minimum size=2cm] at (1,5) {};
-        \node[fill=gray!5, minimum size=2cm] at (5,1) {};
-        \node[fill=gray!5, minimum size=2cm] at (5,5) {};
-        \node[fill=gray!5, minimum size=2cm] at (3,3) {};
-
-        \node[fill=gray!10, minimum size=2cm] at (3,1) {};
-        \node[fill=gray!10, minimum size=2cm] at (1,3) {};
-        \node[fill=gray!10, minimum size=2cm] at (5,3) {};
-        \node[fill=gray!10, minimum size=2cm] at (3,5) {};
-        \draw[step = 2cm, thick] (0,0) grid +(6,6);
-        \draw[->][cyan, very thin] (-0.25,-0.25)--(6.5,6.5);
-        \node at (6.75,6.75) {$I_{11}$};
-        \draw[->][cyan, very thin] (-0.25,1.75)--(4.5,6.5);
-        \node at (4.5,6.75) {$I_{10}$};
-        \draw[->][cyan, very thin] (1.75,-0.25)--(6.5,4.5);
-        \node at (6.8,4.5) {$I_{12}$};
-        \draw[->][violet, very thin] (1.75,6.25)--(6.5,1.5);
-        \node at (6.75,1.5) {$I_{7}$};
-        \draw[->][violet, very thin] (-0.25,6.25)--(6.5,-0.5);
-        \node at (6.75,-0.5) {$I_{8}$};
-        \draw[->][violet, very thin] (-0.25,4.25)--(4.5,-0.5);
-        \node at (4.75,-0.5) {$I_{9}$};
-        \draw[->][teal, very thin] (-0.25,5)--(6.5,5);
-        \node at (6.75,5) {$I_{1}$};
-        \draw[->][teal, very thin] (-0.25,3)--(6.5,3);
-        \node at (6.75,3) {$I_{2}$};
-        \draw[->][teal, very thin] (-0.25,1)--(6.5,1);
-        \node at (6.75,1) {$I_{3}$};
-        \draw[->][purple, very thin] (1,-0.25)--(1,6.5);
-        \node at (1,6.75) {$I_{4}$};
-        \draw[->][purple, very thin] (3,-0.25)--(3,6.5);
-        \node at (3,6.75) {$I_{5}$};
-        \draw[->][purple, very thin] (5,-0.25)--(5,6.5);
-        \node at (5,6.75) {$I_{6}$};
-        \node at (1.3,1.75) {$\symbf{\mu_7}$};
-        \node at (1.3,3.75) {$\symbf{\mu_4}$};
-        \node at (1.3,5.75) {$\symbf{\mu_1}$};
-        \node at (3.3,1.75) {$\symbf{\mu_8}$};
-        \node at (3.3,3.75) {$\symbf{\mu_5}$};
-        \node at (3.3,5.75) {$\symbf{\mu_2}$};
-        \node at (5.3,1.75) {$\symbf{\mu_9}$};
-        \node at (5.3,3.75) {$\symbf{\mu_6}$};
-        \node at (5.3,5.75) {$\symbf{\mu_3}$};
-    \end{tikzpicture}
-    \caption{}
-    \label{fig:tikz1}
 \end{figure}
