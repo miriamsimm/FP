@@ -138,12 +138,12 @@ print(f"\n Absorptionskoeffizienten Würfel 4: \n {Abk_W4} \n {Abk_W4_Err}")
 
 #--------------------Vergleich mit Literaturwerten--------------------#
 
-Eisen = 0.606
-Aluminium = 0.211
-Blei = 1.419
+Eisen = 0.578
+Aluminium = 0.202
+Blei = 1.245
 Blei_Exp = 1.05
-Messing = 0.683
-Delrin = 0.121
+Messing = 0.620
+Delrin = 0.118
 
 
 print(f"\n")
@@ -153,3 +153,21 @@ print(f"Abweichung zu Blei: \n {Abk_W4 - Blei} \n")
 print(f"Abweichung zu Blei experimentell: \n {Abk_W4 - Blei_Exp} \n")
 print(f"Abweichung zu Messing: \n {Abk_W4 - Messing} \n")
 print(f"Abweichung zu Delrin: \n {Abk_W4 - Delrin} \n")
+
+def Rel_Abw(u_i, u):
+    return abs(u_i - u)/u
+
+print(f"Relative Abweichung mu_1: \n {Rel_Abw(Abk_W4[0], Delrin)} \n")
+print(f"Relative Abweichung mu_2: \n {Rel_Abw(Abk_W4[1], Delrin)} \n")
+print(f"Relative Abweichung mu_3: \n {Rel_Abw(Abk_W4[2], Delrin)} \n")
+print(f"Relative Abweichung mu_4: \n {Rel_Abw(Abk_W4[3], Blei_Exp)} \n")
+print(f"Relative Abweichung mu_5: \n {Rel_Abw(Abk_W4[4], Blei_Exp)} \n")
+print(f"Relative Abweichung mu_6: \n {Rel_Abw(Abk_W4[5], Blei_Exp)} \n")
+print(f"Relative Abweichung mu_7: \n {Rel_Abw(Abk_W4[6], Delrin)} \n")
+print(f"Relative Abweichung mu_8: \n {Rel_Abw(Abk_W4[7], Delrin)} \n")
+print(f"Relative Abweichung mu_9: \n {Rel_Abw(Abk_W4[8], Delrin)} \n")
+
+
+
+
+
