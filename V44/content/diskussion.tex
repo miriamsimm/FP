@@ -1,1 +1,31 @@
 \section{Diskussion}
+Die Justage hat im Allgemeinen recht gut funktioniert. Die relativen Unsicherheiten, des Gaussfittes, liegen alle unter $ 2\%$ und dieser Fit kann als recht gut eingestuft werden, wie auch in Figur \ref{fig:Detektor} zu sehen ist.
+Der Z- und rocking-Scan hat auch recht gut funktion und es könnten gut die Strahlenbreite bzw. der kritische Winkel abgelesen werden.
+Die Modifikation des Reflektivitätsscans, durch das Abziehen des diffusen Scans und normieren auf den Geometriefaktor, war auch gut möglich und bei der Theoriekurve \ref{fig:reflekt} handelt es sich um eine Ideale einschichtige Siliziumoberfläche.
+Das Ablesen der Minima am Abbildung \ref{fig:reflekt_norm} war auch gut möglich und insgesamt $10$ Schichtdicken konnten berechnet werden, welche jedoch nur zwei verschiedene Werte annehmen. 
+Die relative Abweichung der Schichtdicke liegt bei $6.9\%$ und die Anzahl der Minima ist ausreichend, wobei eine bessere Winkelauflösung erzielt werden könnte und somit genauere Werte.
+Die Schichtdicken $z = \SI{88.2(11)}{\nm}$, welche mithilfe des Parrat-Algorithmus bestimmt wurde, hat eine relative Unsicherheit von $\SI{1.2}{\percent}$. Dies ist also etwas besser als bei der ersten bestimmten Schichtdicke, aber der relative Fehler liegt bei $\SI{3.5}{\percent}$, weshalb die Werte recht gut übereinstimmen.
+Da kein Referenzwert vorhanden ist, kann nur schwer eingeschätzt werden, welcher von beiden Werten besser ist. 
+Die Brechungsindizes $n_i$, Rauigkeiten $\sigma_i$ und die kritischen Winkel $\theta_c$ sind in Tabelle \ref{tab:Auswertung} mit den Literaturwerten eingetragen.
+Zu den Ergebnissen des Fittes an die Parrat-Algorithmus lässt sich sagen, dass die berechneten Werte recht schlecht sind. Hier können mehrere Faktoren eine Rolle spielen. Zunächst hat der Fit an die $6$ Parameter, mit komplett freien Parameter, gar nicht funktioniert. Dies deutet schon darauf hin, dass das fitprogramm keine gute Sensitivität auf iie Parameter hat und somit große Unsicherheiten enstehen.
+Dies ist besonders auffällig bei den Rauigkeiten $\sigma_i$, wie in Tabelle \ref{tab:fit} zu sehen ist. Hier ergaben sich relative unsicherheiten weit über $100\%$ und die Fits mit weiteren Einschränkungen haben die Ergebnisse auch kaum verbessert. Zu vollstandigkeit halber haben wir uns dennoch entschieden diese in die Auswertung mit aufzunehmen. Es wurden auch teilweise andere Annahmen versucht, z. B. $\beta_i = 0$, welche aber auch kein qualitatives besseres Ergebnis geliefert haben.
+Ein anderer Weg bessere Ergebnisse zu erzielen, wäre es mehr Daten zu nehmen, in dem die Schrittweite erhöht wird. Dies könnte mehr Einschränkungen an die Parameter liefern und damit dass Ergebnis verbessern. 
+Insgesamt lässt sich zusammenfassen, dass der letzt Teil der Auswertung keine gut Ergebnisse geliefert hat, obwohl die Justage und Schichtdicken bestimmung recht gut verlief.
+\begin{table}
+    \centering
+    \begin{adjustbox}{width=1\textwidth}
+    \begin{tabular}{@{}lllllll@{}}
+    \toprule
+                                  &$\delta_{PS}/ \num{e-6}$     &$\delta_{SI}/ \num{e-6}$   &$\beta_{PS} / \num{e-6}$       &$\beta_{SI}/ \num{e-6} $ & $\theta_{c,PS}$                 &$\theta_{c,Si} $                       \\ \midrule
+     lit. Werte                   &\num{3.5}                    &\num{7.6}                  &\num{4.9e-3}                   & \num{1.73e-1}           &\num{0.153}                      &\num{0.223}                            \\ 
+     Fit 1                        &\num{2.0(5)}                 &\num{2.01(6)}                  &\num{3.04(15)}           &\num{3.02(10)}                   &\num{0.115(14)} & \num{0.115(2)}                           \\
+     Abweichung [\%]              &\num{97}                     &\num{73}                   &\num{40800}                    &\num{1660}               &\num{25}                         & \num{49}                            \\ 
+     Fit 2:$\sigma_1 = \sigma_2$  &\num{1.83(8)}                &\num{1.838(4)}                 &\num{3.18(3)}            &\num{3.176(9)}                   &\num{0.110(2)} &\num{0.110(1) }                         \\ 
+     Abweichung  [\%]             &\num{97}                     &\num{76}                   &\num{37401}                    &\num{1745}               &\num{28}                         &\num{51 }                              \\ 
+     Fit 3:$\sigma_i = 0$         &\num{2.20(3)}                &\num{2.2(9)}                   &\num{3.147(9)}           &\num{3.141(5)}                   &\num{0.1202(9)} &\num{0.12030(3)  }                                      \\ 
+     Abweichung  [\%]             &\num{97}                     &\num{71}                   &\num{448.65}                   &\num{1721}               &\num{21}                         &\num{46  }                                      \\\bottomrule
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Zusammenfassung der berechneten Werte, für welche es Vergleichswerte in der Literatur\cite{skript} gibt. }
+    \label{tab:Auswertung}
+\end{table} 
