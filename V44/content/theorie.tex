@@ -1,13 +1,13 @@
 \section{Theorie}
 Röntgenstrahlung ist für das menschliche Auge nicht sichtbare Strahlung mit einer Wellenlänge unter 10 nm.
-In einer Röntgenröhre entsteht Röntgenstrahlung durch zwei verschiedene Prozesse durch Beschleunigung von 
-Elektronen von einer Kathode zur Anode in einem elektrischen Feld. Zum einen schlagen die Elektronen
+In einer Röntgenröhre entsteht Röntgenstrahlung durch zwei Prozesse bei der Beschleunigung von 
+Elektronen von einer Kathode zu einer Anode in einem elektrischen Feld. Die Elektronen schlagen
 beim Auftreffen auf die Anode Elektronen aus den inneren Schalen der Atome des Anodenmaterials heraus. 
 Durch Übergänge von Elektronen höhrerer Energieniveaus werden Photonen entsprechend der 
 freiwerdenen Bindungsenergie emittiert. Es entsteht ein Linienspektrum, welches charakteristisch für das 
 Anodenmaterial ist, das charakteristische Röntgenspektrum. 
-Zum anderen entsteht Röntgenstrahlung auch bei der Beschleunigung oder Abbremsung von Elektronen. Die 
-Wellenlänge der so erzeugten Bremsstrahlung ist dabei abhängig von der Stärke der Beschleunigung bzw. 
+Röntgenstrahlung entsteht auch bei der Beschleunigung oder Abbremsung von Elektronen. Die 
+Wellenlänge der so erzeugten Bremsstrahlung ist dabei abhängig von der Stärke der Beschleunigung oder 
 Abbremsung und korrespondiert so zu der zwischen Kathode und Anode angelegten Beschleunigungsspannung.
 Das Spektrum der Bremsstrahlung ist kontinuierlich und dem charakteristischen Spektrum überlagert.
 
@@ -17,5 +17,71 @@ Röntgenstrahlung hat einen Brechungsindex
 \end{equation*}
 mit einem kleinen positiven Störungsparameter $\delta$ mit typischer Größenordnung 
 $\delta \sim \mathcal{O}(10^{-6})$. Der Realteil $\text{Re}(n) = 1-\delta$ beschreibt die Brechung, der
-Imaginärteil $\text{Im}(n) = \beta$ die Absorption. Durch den Parameter $\delta$ wird der Realteil des 
-Brechungsindex kleiner als 1, sodass Totalreflexion möglich ist.
+Imaginärteil $\text{Im}(n) = \beta$ die Absorption.
+Trifft eine elektromagnetische Welle auf eine Grenzfläche, so wird die Beziehung zwischen dem Winkel 
+$\alpha_1$ der einfallenden Welle und dem Winkel $\alpha_2$ der transmittierten Welle durch das 
+\textit{Snellius'sche Brechungsgesetz}
+\begin{equation}
+    n_1 \sin \alpha_1 = n_2 \sin \alpha_2 
+    \label{eq:snellius}
+\end{equation}
+beschrieben. Bei Röntgenstrahlung wird der Realteil des Brechungsindex $n_2$ durch den Parameter $\delta$ 
+kleiner als 1, sodass bei einem kritischen Winkel $\alpha_1 = \alpha_\text{krit}$ Gl. \ref{eq:snellius} nicht
+mehr erfüllt werden kann und es zu Totalreflexion kommt.
+
+Die Brechung und Reflektion einer elektromagnetischen Welle an einer Grenzfläche wird durch die 
+\textit{Fresnel'schen Formeln} über Transmissions- und Reflektionskoeffizienten $t$ und $r$ beschrieben. 
+In den allgmeinen Gleichungen muss zwischen s- und p-Polarisation unterschieden werden, im Fall von 
+Röntgenstrahlung ist diese Unterscheidung jedoch vernachlässigbar. Die Fresnel'schen Formeln sind dann 
+\begin{align*}
+    r &= \frac{n_1 \cos \alpha_1 - n_2 \cos \alpha_2}{n_1 \cos \alpha_1 + n_2 \cos \alpha_2} \\
+    t &= \frac{2 n_1 \cos \alpha_1}{n_1 \cos \alpha_1 + n_2 \cos \alpha_2} \, .
+\end{align*}
+Die Fresnel-Reflektivität berechnet sich über den Reflektionskoeffizienten $r$ durch $R_F = |r|^2$. 
+
+\subsection*{Kiessig-Oszillationen}
+Besteht das Medium aus mehreren Schichten, treten \textit{Kiessig-Oszillationen} auf, siehe Abb. \ref{fig:kiessig}. 
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{kiessig.png}
+    \caption{Berechnete Röntgenreflektivität $R$ einer Polystyrol-Schicht mit Dicke $d = 800$ Å auf einem Siliziumsubstrat in 
+    Abhängigkeit des Einfallswinkels $\alpha_i$ bei $\lambda = 1,54$ Å (Durchgezogene Linie) sowie 
+    Fresnelreflektivität des Substrats (Gestrichelte Linie) \cite{kiessig}.}
+    \label{fig:kiessig}
+\end{figure}
+Diese Oszillationen der Reflektivität entstehen durch Interferenz. An jeder Schicht im Medium wird die 
+beim vorherigen Brechungsporzess transmittierte Welle gebrochen, die dabei reflektierten Wellen 
+interferieren. Aus der Lage der Oszillationsminima bei konstruktiver Interferenz, die auftritt, wenn der 
+Gangunterschied zwischen zwei interferierenden Wellen
+ein gerades Vielfaches der halben Wellenlänge beträgt, kann für ein System aus zwei Schichten über
+\begin{equation*}
+    d = \frac{2 \pi}{\Delta q} \approx \frac{\lambda}{2 \Delta \alpha_1}
+\end{equation*} 
+mit dem Abstand der zwei Maxima $q = 2 k \sin \alpha_1 = \frac{4 \pi}{\lambda} \sin \alpha_1$
+und der Periode $\Delta \alpha$ die Schichtdicke $d$ bestimmt werden, siehe Abb. \ref{fig:schichtdicke}.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{schichtdicke.png}
+    \caption{Streugeometrie an einen Zwei-Schicht-System mit $n_0 < n_1 < n_2$. Kiessig-Oszillation 
+    mit Intensität $I(\alpha)$ entsteht durch konstruktive Interferenz der Reflektionen \cite{ref:dissertation}.}
+    \label{fig:schichtdicke}
+\end{figure}
+Bei einem System mit mehr als zwei Schichten überlagern sich verschiedene Oszillationen. Mit dem \textit{Parratt-Algorithmus}
+kann die Reflektivität eines Mehrschichtsystems über die Fresnle'schen Formeln rekursiv bestimmt werden.
+Die Rekursionsgleichung beschreibt das Amplitudenerhältnis der reflektierten und transmittierten Strahlung
+zwischen den Schichten $j$ und $j+1$. 
+\begin{align}
+    X_j = \frac{R_j}{T_j} &= e^{-2 i k_{z,j}z_j} \cdot \frac{r_{j, j+1} + X_{j+1}e^{2 i k_{z,j+1}z_j}}{1+r_{j, j+1} + X_{j+1}e^{2 i k_{z,j+1}z_j}} \\
+    r_{j, j+1} &= \frac{k_{z,j}-k_{z, j+1}}{k_{z,j}+k_{z, j+1}}
+\end{align}
+mit der Koordinate $z_j$, die die Lager der $j$-ten Grenzfläche beschreibt und der Fresnelreflektivität
+der $j$-ten Grenzfläche $r_{j, j+1}$.
+Aufgrund der geringen Eindringtiefe von Röntgenstrahlung wird angenommen, dass an der untersten Schicht 
+keine Transmission mehr stattfindet.
+Die Berechnung eines Systems aus $n$ Schichten beginnt bei $R_{n+1} = 0$, sodass sukessiv die $X_j$ bis zur 
+letzten Grenzfläche berechnet werden können. 
+Bei rauen Schichten mit einer Rauigkeit $\sigma$, die kleiner ist als die Schichtdicke, kann der Parrat-Algorithmus
+mit modifizierten Frenselkoeffizienten verwendet werden. Dann gilt 
+\begin{equation}
+    r_{j, j+1}^\text{rauh} = e^{-2 i k_{z,j} k_{z, j+1} \sigma_j^2} \cdot \frac{k_{z,j}-k_{z, j+1}}{k_{z,j}+k_{z, j+1}} \, .
+\end{equation}

@@ -1,10 +1,50 @@
 \section{Durchführung}
 In diesem Versuch wird zur Messung der Reflektivität ein D8-Labordiffraktometer verwendet, ein 
-$\theta$ - $\theta$-Diffraktometer bei dem Röntgenröhre und Detektor beliebig um den Probentisch 
+$\theta$ - $\theta$ - Diffraktometer, bei dem Röntgenröhre und Detektor beliebig um den Probentisch 
 gedreht werden können. Die zur Erzeugung der Röntgenstrahlung verwendete Kupferanodenröhre wird bei einem
 Strom von $\SI{35}{\mA}$ und einer Spannung von $\SI{40}{\kV}$ betrieben. Mit einem Göbel-Spiegel 
-wird die emittierte divergente Strahlung parallelisiert. %Intnsität und Versuchsaufbau?
+wird die emittierte divergente Strahlung parallelisiert. %Intensität und Versuchsaufbau?
 
 Die Datennahme erfolgt mit dem Computerprogramm "XRD Commander". 
 Vor Beginn der Messung wird die Probe justiert. Dies erfolgt mit einem mehrschrittigen Verfahren 
-verschiedener Scans, siehe Tabelle \ref{tab:scanverfahren}
+verschiedener Scans, die einzelnen Justageschritte sind in Tab. \ref{tab:scanverfahren} aufgeführt.
+\FloatBarrier
+\begin{table}[h]
+    \centering
+    \caption{Übersicht der einzelnen Schritte bei der Justierung der Messapparatur. Die Messdauer pro Messpunkt beträgt in jedem Schritt 1s.}
+    \label{tab:scanverfahren}
+    \begin{tabular}{l S[table-format=2.2]@{$-$}S[table-format=1.1] S[table-format=1.3]}
+        \toprule
+        {Scan-Typ}         & \multicolumn{2}{c}{Messbereich} & {Schrittweite} \\
+        \midrule
+        {Detektorscan}    & -0.5 & 0.5 & 0.02 \\
+        {$z$-Scan}         & -1.0 & 1.0 & 0.04 \\
+        {Rockingscan $2\theta = 0$}     & -1.0 & 1.0 & 0.04 \\
+        {$z$-Scan}         & -0.5 & 0.5 & 0.02 \\
+        {Rockingscan $2\theta = 0,3$}     & 0    & 3.0 & 0.005 \\
+        {$z$-Scan $2\theta = 0,3$}         & -0.5 & 0.5 & 0.02 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\FloatBarrier
+\noindent
+Zuerst wird mit einem Detektorscan der Primärstrahl justiert. Vorab wird die Probe in $z$-Richtung aus 
+dem Strahl gefahren und die Röhre auf 0° bewegt. Die Nulllage des Detektors wird bestimmt, indem der
+Detektor in einem kleinen Winkelbereich um die Position der Röhre variiert wird. Der Scan hat die Form 
+einer Gaußglocke, dessen Maximum der Nullposition entspricht. Anschließend wird durch Verschieben des Probentisches
+in alle drei Raumrichtungen die Probe nach Augenmaß positioniert. Die gesuchte Position ist erreicht, wenn 
+die Probe parallel zum Strahl steht und die halbe Intensität des Primärstrahls abschattet. Dazu wird ein
+$z$-Scan durchgeführt, der die $z$-Position der Probe ändert und mit dem so durch eine Intensitätsmessung 
+die halbe Abschattung bei $I = \frac{1}{2} I_\text{max}$ bestimmt wird. Der anschließende Rockingscan
+dient zur Justierung der Verkippung der Probe zum Strahl. Dabei werden die Röntgenröhre und der Detektor 
+so um die Probe gedreht, dass der Winkel zwischen Röhre und Detektor konstant bleibt. Die Position des 
+Probentisches wird so lange variiert, bis die gemessene Intensitätsverteilung einem symmetrischen Dreieck 
+entspricht. Mit einem weiteren $z$-Scan, Rockingscan und anschließendem $z$-Scan wird eine noch präzisere 
+Justierung der Probe erreicht. 
+
+Mit einem Reflektivitätsscan erfolgt nun die Untersuchung der Polysterolschicht auf dem Silizium-Wafer. 
+Bei der Messung sind der Einfallswinkel auf die Probe und der Winkel zwischen Probe und Detektor gleich.
+Der Scan erfolgt im Bereich von 0° bis 2,5° bei einer Schrittweite von 0,005° und einer Messzeit von 
+5s pro Messpunkt. Mit einem Diffuserscan wird der Anteil der gestreuten Intensität an der Reflektivität
+bestimmt, indem in einer zweiten, analog verlaufenden Messung der Detektorwinkel um 0,1° gegenüber dem 
+Einfallswinkel verschoben wird.
