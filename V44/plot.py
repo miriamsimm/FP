@@ -60,7 +60,7 @@ plt.savefig("plots/rocking.pdf")
 plt.close()
 
 
-theta_g = 0.7
+theta_g = 0.63
 d_0 = 0.24
 D = d_0/np.sin(np.deg2rad(theta_g)) 
 
@@ -163,21 +163,40 @@ print(np.mean(d),np.std(d),np.std(d)/np.mean(d))
 #factor = y[x == 0.1950]   # Faktor um die Messwerte zu normalisieren
 factor = param[1]
 y = y/factor
-def parrat(alpha,z,delta1,delta2,beta1,beta2,sigma0,sigma1):
-    alpha = np.deg2rad(alpha)
-    n0 = 1
-    n1 = 1- delta1 + 1j*beta1
-    n2 = 1- delta2 + 1j*beta2
-    lam = 1.54*1e-10
-    k0 = 2*np.pi/lam *np.sqrt(n0**2 - np.cos(alpha)**2)
+
+
+########################################### Parrat #################################
+
+
+def parrat(alpha,z,delta1,delta2,beta1,beta2,sigma0,sigma1):        # Input: Winkel alpha, schichtdicke z, delta_i realteile von 1- n_i, beta_i imaginärteile von n_i, Rauigkeiten sigma_i
+    alpha = np.deg2rad(alpha)                                       # Umwandlung in rad
+    n0 = 1                                                          # n für Luft
+    n1 = 1- delta1 + 1j*beta1                                       # n für Schicht 1
+    n2 = 1- delta2 + 1j*beta2                                       # n für Schicht 2
+    lam = 1.54*1e-10                                                # Wellenlänge lambda
+
+
+    k0 = 2*np.pi/lam *np.sqrt(n0**2 - np.cos(alpha)**2)             # Berechnen der k_z Werte für die unterschiedlichen Schichten
     k1 = 2*np.pi/lam *np.sqrt(n1**2 -np.cos(alpha)**2 )
     k2 = 2*np.pi/lam *np.sqrt(n2**2 -np.cos(alpha)**2 )
 
-    r0 = (k0 - k1 )/( k0 + k1 )*np.exp(    -2*k0*k1*sigma0**2     )
-    r1 = (k1 - k2 )/( k1 + k2 )*np.exp(    -2*k1*k2*sigma1**2     )
-    X1 = np.exp(-2j*k1*z )*r1
-    X0 = (  r0  + X1   )/  ( 1+ r0*X1   )
-    return np.abs(X0)**2
+    r0 = (k0 - k1 )/( k0 + k1 )*np.exp(    -2*k0*k1*sigma0**2     ) # Berechnen der modifizierten Fresnelkoeff. r_{0,1} 
+    r1 = (k1 - k2 )/( k1 + k2 )*np.exp(    -2*k1*k2*sigma1**2     ) # r_{1,2}
+
+
+    X1 = np.exp(-2j*k1*z )*r1                                       # X1 für den Übergang  PS-> Si , nach der Annahme gilt X2 = 0
+    X0 = (  r0  + X1   )/  ( 1+ r0*X1   )                           # X0 für den Übergang Luft -> PS, hier gilt k0*z approx 0
+    return np.abs(X0)**2                                            # Output: Betragsquadrat von X0
+
+
+
+
+##############################################################################    
+
+
+
+
+
 literatur = np.array([3.5e-6,7.6e-6,4/(1e-2),141/(1e-2),0.153,0.223])
 literatur[2] = lam*literatur[2]/(4*np.pi)
 literatur[3] = lam*literatur[3]/(4*np.pi)
@@ -202,6 +221,8 @@ print("Lit_Abw:","delta2",(par_param[1] -literatur[1])/literatur[1] )
 print("Lit_Abw:","beta1",(par_param[2] -literatur[2])/literatur[2] )
 print("Lit_Abw:","beta1",(par_param[3] -literatur[3])/literatur[3] )
 
+
+#plt.plot(xplot,parrat(xplot,z0,literatur[0],literatur[1],literatur[2],literatur[3],1e-10,3e-10),label = "Lit. Werte ",color = "red")
 plt.plot(xplot,parrat(xplot,*par_param),label = "Fitkurve",color = "orange")
 plt.plot(x,y,label = "normierte Messkurve",color = "blue")
 plt.xlim(0,2.5)

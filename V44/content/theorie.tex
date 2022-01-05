@@ -35,6 +35,7 @@ kleiner als 1, sodass unterhalb eines kritischen Winkels $\alpha_\text{krit}$ da
 Aus dem Snellius'schen Brechungsgesetz kann $\alpha_\text{krit}$ für Grenzflächen zwischen Vakuum und 
 Materie berechnet werden. Es ergibt sich 
 \begin{equation*}
+    \label{eqn:krit}
     \alpha_\text{krit} = \sqrt{2 \delta}
 \end{equation*}
 unter Vernachlässigung von Absorption \cite{dissertation2}.
@@ -85,7 +86,7 @@ kann die Reflektivität eines Mehrschichtsystems über die Fresnel'schen Formeln
 Die Rekursionsgleichung beschreibt das Amplitudenverhältnis der reflektierten und transmittierten Strahlung
 zwischen den Schichten $j$ und $j+1$. 
 \begin{align}
-    X_j = \frac{R_j}{T_j} &= e^{-2 i k_{z,j}z_j} \cdot \frac{r_{j, j+1} + X_{j+1}e^{2 i k_{z,j+1}z_j}}{1+r_{j, j+1} + X_{j+1}e^{2 i k_{z,j+1}z_j}} \\
+    X_j = \frac{R_j}{T_j} &= e^{-2 i k_{z,j}z_j} \cdot \frac{r_{j, j+1} + X_{j+1}e^{2 i k_{z,j+1}z_j}}{1+r_{j, j+1}  X_{j+1}e^{2 i k_{z,j+1}z_j}} \\
     r_{j, j+1} &= \frac{k_{z,j}-k_{z, j+1}}{k_{z,j}+k_{z, j+1}}
 \end{align}
 mit der Koordinate $z_j$, die die Lage der $j$-ten Grenzfläche beschreibt und der Fresnelreflektivität
@@ -111,6 +112,6 @@ $D$ der Probenoberfläche für Einfallswinkel $\alpha_i < \alpha_g$ definiert al
 das Verhältnis aus Strahlbreite $D \sin \alpha_i$, das die die Probenoberfläche trifft, und 
 Gesamtstrahlbreite $d_0$ und gegeben durch
 \begin{equation}
-    G = \frac{D}{d_0} \sin \alpha_i = 1 \, .
+    G = \frac{D}{d_0} \sin \alpha_i  .
     \label{eq:geometrie}
 \end{equation}
