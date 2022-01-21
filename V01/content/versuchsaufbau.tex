@@ -1,0 +1,50 @@
+\section{Versuchsaufbau}
+Die Messung der Lebensdauer der Myonen erfolgt mit einem in eine Schaltung integrierten Szintillator.
+Ein Szintillator ist ein Detektor zum Nachweis ionsieriender Strahlung. Tritt diese in den Detektor ein, 
+wechselwirkt sie über Photoeffekt, Comptoneffekt und Paarbild mit den Atomen des Detektormaterials und gibt 
+Energie an den Detektor ab. Dabei entsteht über die verschiedenen Wechselwirkungsprozesse Licht, welches 
+mit zwei Photomultipliern (PMT) verstärkt und in ein elektrisches Signal umgewandelt wird.
+In diesem Versuch wird ein organischer Szintillator mit einem Volumen von 50l verwendet. Organische Szintillatoren
+haben gegenüber anorganischen Szintillatoren den Vorteil, dass sie eine geringere Ansprechzeit haben \cite{szintillatoren}.
+
+Die verwendete Schaltung ist in Abbildung \ref{fig:schaltung} dargestellt. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{schaltung.png}
+    \caption{Schaltbild des Versuchsaufbaus zur Lebensdauermessung \cite{anleitung}.}
+    \label{fig:schaltung}
+\end{figure}
+Das grundlegende Prinzip des Aufbaus ist, mit einer elektronischen Stoppuhr sowohl die Zeitdifferenz zwischen
+dem Eintreffen des Myons im Detektor sowie dem Zerfall des Myons zu messen. Erwartet werden zwei Signale, 
+eins durch das Myon selbst und ein zweites durch die Wechselwirkung der Zerfallsprodukte mit dem 
+Szintillatormaterial. 
+Die Schwierigkeit bei der Messung der Lebensdauer besteht darin, nur die Ereignisse herauszufiltern, bei 
+denen das eintreffende Myon im Szintillator zerfällt.
+Problematisch ist dabei, dass die Energie vieler eintreffender Myonen zu groß ist, und sie ohne zu 
+zerfallen den Szintillator durchlaufen und somit kein Stoppsignal ausgelöst wird.
+Diese Schwierigkeit wird durch die beiden AND-Gatter, die Verzögerungsleitung und den Monoflop überwunden.
+Verlässt ein Spannungsimpuls die Koinzidenzschaltung, läuft sie zuerst auf die beiden linken Eingänge
+der AND-Gatter. Parallel läuft sie über eine Verzögerungsleitung mit $\Delta t = 30 \text{ ns}$ auf 
+den Monoflop. Dieser hat zwei Ausgänge, von denen einer invertiert ist. 
+Nur an dem Ausgang des Monoflops, der mit dem rechten AND-Gatter verbunden ist, liegt Spannung an, wenn 
+am Eingang des Monoflops Spannung anliegt, am anderen Ausgang liegt keine Spannung an. 
+Liegt keine Spannung am Monoflop an, ist die Situation entsprechend umgekehrt. 
+Innerhalb der Verzögerungszeit liegt also an beiden Eingängen des linken AND-Gatters
+Spannung an, wodurch die Zeitmessung mit dem  Time-Amplitude-Converter (TAC)
+gestartet wird und der Impulszähler das Signal als Startsignal zählt. Am Monoflop wird eine Suchzeit eingestellt,
+innerhalb derer das Stoppsignal eintreffen kann. Trifft innerhalb dieser Suchzeit ein zweites Signal 
+auf die Schaltung, liegt durch den invertierten Ausgang des Monoflops am beiden Eingängen des rechten 
+AND-Gatters Spannung an, wodurch die Zeitmessung gestoppt wird und ein Stoppimpuls registriert wird. 
+Wird innerhalb der Suchzeit kein zweites Signal gemessen, schaltet sich der Monoflop wieder um, sodass 
+bei einem erneuten Eintreffen eines Signals wieder an den beiden Eingängen des linken AND-Gatters Spannung
+anliegt und ein neues Startsignal aufgenommen werden kann. Über einen Multi-Channel-Analyzer (MCA) wird
+die Höhe des vom TAC gemessenen Impulses, der proportioanl zur Zeitdifferenz zwischen Start- und 
+Stoppsignal ist, dann Känalen zugewiesen und an den PC weitergegeben, wo ein Histogramm erstellt wird.
+
+Ein weiteres Problem stellt der Untergrund dar, der durch thermisches Rauschen der Photokathoden im Szintillator
+ensteht. Die Spannungsimpulse, die bei dieser spontanen Emission von Elektronen entstehen, sind jedoch 
+deutlich niedriger als die der eintreffen Myonen. Mit zwei Diskriminatoren werden daher Impulse unterhalb einer 
+bestimmten Schwellspannung herausgefiltert und nicht weitergeleitet. Zudem wird eine Koinzidenzschaltung
+verwendet. So wird nur ein Signal weitergeleitet, wenn an beiden Seiten dieses Schaltelements 
+annähernd gleichzeitig ein Signal eintrifft, was bei spontaner Elektronenemission in den Photokathoden 
+statistisch nur äußerst selten der Fall ist.
