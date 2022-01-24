@@ -3,7 +3,7 @@
 Zunächst muss die optimale Verzögerungszeit $T_v$ bestimmt werden. Hierfür werden in einem $10 \text{ s}$-Intervall die Myonen-Counts aufgenommen, wobei die Verzögerung an den Diskriminatoren jeweils verstellt wird. Die aufgenommenen Messwerte sind in Tabelle \ref{tab:Verzögerung} eingetragen.
 \begin{table}
     \centering
-    \caption{Messwerte zur bestimung der Verzögerungszeit. Für die Durchführung des Versuches wurde der Wert $T_V = \SI{-1}{\micro\second}$ gewählt.}
+    \caption{Messwerte zur bestimung der Verzögerungszeit. Für die Durchführung des Versuches wurde der Wert $T_V = \SI{-1}{\micro\second}$ gewählt. Die negative Zeitwerte stehen für eine Verzögerung am linken Diskriminator}
     \begin{tabular}{S[table-format=3.1] S[table-format=3.0]}
     \toprule
     {$t / \si{\nano\second}$} & Counts  \\ 
@@ -45,14 +45,14 @@ verwendet wird. Die Fitwerte und die berechnete Halbwertsbreite $T_{1/2} =2\sqrt
     T_{1/2} &= \SI{15.1(12)}{\nano\second}.
 \end{align*}
 Die Messwerte und Fitkurve sind in Abbildung \ref{fig:Verzögerung} dargestellt. Die negative Zeitwerte stehen für eine Verzögerung am linken Diskriminator. 
-Für die nachfolgenden Auswertungsschritte wird jeweils eine Verzögerungszeit von $T_v = \SI{-1}{\sec}$ gewählt.
+Für die nachfolgenden Auswertungsschritte wird jeweils eine Verzögerungszeit von $T_v = \SI{-1}{\second}$ gewählt.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{plot.pdf}
     \caption{Messdaten zur Justage der Verzögerungszeit an den Diskriminatoren. Aufgetragen sind die Counts in Abhängigkeit von der eingestellten Verzögerungszeit. Negative Zeiten stehen für eine Verzögerung am linken Diskriminator. Zusätzlich ist auch der bestimmte Gauss-Fit abgebildet.}
     \label{fig:Verzögerung}
 \end{figure} 
-Als nächstes wird die Kalibration durchgeführt. Die Messzeiten betragen erneut $\SI{10}{\sec}$ und die Fitgerade für die Umrechnung der Kanalnummern in Messzeiten kann durch 
+Als nächstes wird die Kalibration durchgeführt. Die Messzeiten betragen erneut $\SI{10}{\second}$ und die Fitgerade für die Umrechnung der Kanalnummern in Messzeiten kann durch 
 \begin{equation}
     \label{eqn:kali}
     t(C) = AC + B
