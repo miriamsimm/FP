@@ -1,11 +1,13 @@
 \section{Auswertung}
 \subsection{Justage und Kalibration}
-Zunächst muss die optimale Verzögerungszeit $T_v$ bestimmt werden. Hierfür werden in einem $\SI{10}{\sec} $-Intervall die Myonen-Counts aufgenommen, wobei die Verzögerung an den Diskriminatoren jeweils verstellt wird. Die Aufgenommene Messwerte sind in Tabelle \ref{tab:Verzögerung} eingetragen.
+Zunächst muss die optimale Verzögerungszeit $T_v$ bestimmt werden. Hierfür werden in einem $10 \text{ s}$-Intervall die Myonen-Counts aufgenommen, wobei die Verzögerung an den Diskriminatoren jeweils verstellt wird. Die aufgenommenen Messwerte sind in Tabelle \ref{tab:Verzögerung} eingetragen.
 \begin{table}
     \centering
-    \begin{tabular}{@{}ll@{}}
+    \caption{Messwerte zur bestimung der Verzögerungszeit. Für die Durchführung des Versuches wurde der Wert $T_V = \SI{-1}{\micro\second}$ gewählt.}
+    \begin{tabular}{S[table-format=3.1] S[table-format=3.0]}
     \toprule
-     $t / \si{\nano\second}$ & Counts  \\ \midrule
+    {$t / \si{\nano\second}$} & Counts  \\ 
+    \midrule
 -14  & 12 \\
 -12  & 20 \\
 -8   & 89 \\
@@ -27,107 +29,113 @@ Zunächst muss die optimale Verzögerungszeit $T_v$ bestimmt werden. Hierfür we
 6    &170\\
 8    &119\\
 12   &40\\
+\bottomrule
     \end{tabular}
-    \caption{ Messwerte zur bestimung der Verzögerungszeit. Für die Durchführung des Versuches wurde der Wert $T_V = \SI{-1}{\micro\second}$ gewählt.}
     \label{tab:Verzögerung}
 \end{table} 
-Im folgenden muss die Halbwertsbreite bestimmt werden, wofür eine Gaussfunktion
+Im Folgenden wird die Halbwertsbreite bestimmt, wofür eine Gaussfunktion
 \begin{equation*}
     f(t) = A\exp(- \frac{(t-\mu)^2}{2\sigma^2} )
 \end{equation*}
-benutzt wird. Die Fitwerte und die berechnete Halbwertsbreite $T_{1/2} =2\sqrt{2\ln2}\sigma$ sind gegeben durch 
+verwendet wird. Die Fitwerte und die berechnete Halbwertsbreite $T_{1/2} =2\sqrt{2\ln2}\sigma$ sind gegeben durch 
 \begin{align*}
     A &= \num{237(7)} \\
     \mu &= \SI{0.6(4)}{\nano\second} \\
     \sigma &= \SI{6.4(5)}{\nano\second} \\
     T_{1/2} &= \SI{15.1(12)}{\nano\second}.
 \end{align*}
-Die Messwerte und Fitkurve sind in der Abbildung \ref{fig:Verzögerung} dargestellt. Hier stehen negative Zeitwerte für eine Verzögerung an dem Linken Diskriminator. 
-Für die nachvollgenden Auswertungsschritte wurde jeweils eine Verzögerungszeit von $T_v = \SI{-1}{\sec}$ gewählt.
+Die Messwerte und Fitkurve sind in Abbildung \ref{fig:Verzögerung} dargestellt. Die negative Zeitwerte stehen für eine Verzögerung am linken Diskriminator. 
+Für die nachfolgenden Auswertungsschritte wird jeweils eine Verzögerungszeit von $T_v = \SI{-1}{\sec}$ gewählt.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{plot.pdf}
-    \caption{Messdaten zur justage der Verzögerungszeit an den Diskriminatoren. Aufgetragen sind die Counts in Abhängigkeit von der eingestellten Verzögerungszeit. Negative Zeiten stehen für eine Verzögerung am linken Diskriminator. Zusätzlich ist auch der bestimmte Gauss-fit abgebildet.   }
+    \caption{Messdaten zur Justage der Verzögerungszeit an den Diskriminatoren. Aufgetragen sind die Counts in Abhängigkeit von der eingestellten Verzögerungszeit. Negative Zeiten stehen für eine Verzögerung am linken Diskriminator. Zusätzlich ist auch der bestimmte Gauss-Fit abgebildet.}
     \label{fig:Verzögerung}
 \end{figure} 
-Als nächstes muss die Kalibration durchgeführt werden. Die Messzeiten betragen erneut $\SI{10}{\sec}$ und die Fitgerade, für die Umrechnung der Kanalnummern in Messzeiten, kann durch 
+Als nächstes wird die Kalibration durchgeführt. Die Messzeiten betragen erneut $\SI{10}{\sec}$ und die Fitgerade für die Umrechnung der Kanalnummern in Messzeiten kann durch 
 \begin{equation}
     \label{eqn:kali}
     t(C) = AC + B
 \end{equation}
-parametrisiert werden. Hier ist $t$ die Messzeit, $C$ die Kanalnummer und $A,B$ sind die freien Fitparameter welche durch
+parametrisiert werden. Hierbei ist $t$ die Messzeit, $C$ die Kanalnummer und $A,B$ sind die freien Fitparameter welche durch
 \begin{align*}
     A &= \SI{0.0437(13)}{\micro\second} \\
     B &= \SI{0.43(17)}{\micro\second}
 \end{align*}
-gegeben sind. Die Messwerte für die Kalibration sind in \ref{tab:kali} eingetragen und in Abbildung \ref{fig:kali}, mit der Fitgerade, dargestellt.
-Im folgenden werden alle Kanalnummer mithilfe von Gleichung \ref{eqn:kali} eine jeweilige Zeit zugeordnet.
+gegeben sind. Die Messwerte für die Kalibration sind in \ref{tab:kali} angegeben und in Abbildung \ref{fig:kali} mit der Fitgerade dargestellt.
+Im Folgenden wird allen Kanalnummern mithilfe von Gleichung \ref{eqn:kali} die jeweilige Zeit zugeordnet.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{kalibration.pdf}
-    \caption{ Messwerte zur Kalibration des MCA und die berechnete Fitgerade. Aufgetragen ist die Zeit $t$ in Abhängigkeit von der Kanalnummer.}
+    \caption{Messwerte zur Kalibration des MCA und die berechnete Fitgerade. Aufgetragen ist die Zeit $t$ in Abhängigkeit von der Kanalnummer.}
     \label{fig:kali}
 \end{figure}
 \begin{table}
     \centering
-    \begin{tabular}{@{}ll@{}}
-    \toprule
-     Channel & $t / \si{\micro\second}$  \\ \midrule
-     \num{9}   &\num{0.7  }   \\
-     \num{29}  &\num{1.6  }   \\
-     \num{49}  &\num{2.5  }   \\
-     \num{70}  &\num{3.4  }   \\
-     \num{96}  &\num{4.5  }   \\
-     \num{95}  &\num{5.4  }   \\
-     \num{136} &\num{6.3  }   \\
-     \num{157} &\num{7.2  }   \\
-     \num{178} &\num{8.1  }   \\
-     \num{197} &\num{9.0  }   \\
-     \num{217} &\num{9.9  }   \\ \bottomrule
-    \end{tabular}
     \caption{ Messwerte zur Kalibration des MCA. Die Werte erlauben durch einen linearen Fit eine Zuordnung der Channels an die jeweilige Zeit $t$.}
+    \begin{tabular}{S[table-format=3.0] S[table-format=1.1]}
+    \toprule
+     {Channel} & $t / \si{\micro\second}$  \\ 
+     \midrule
+     9  & 0.7 \\
+     29 & 1.6 \\
+     49 & 2.5 \\
+     70 & 3.4 \\
+     96 & 4.5 \\
+     95 & 5.4 \\
+     136 & 6.3 \\
+     157 & 7.2 \\
+     178 & 8.1 \\
+     197 & 9.0 \\
+     217 & 9.9 \\ 
+     \bottomrule
+    \end{tabular}
     \label{tab:kali}
 \end{table} 
 \subsection{Messung der Lebensdauer}
-Die Messung der Lebensdauer von Myonen erfolgte über einen Zeitraum von $\SI{181285}{\sec}$ und es wurden $3604339$ start Signale gemessen. 
-Der Untergrund lässt sich mithilfe der Poissionverteilung 
+Die Messung der Lebensdauer der Myonen erfolgte über einen Zeitraum von $\SI{181285}{\second}$, wobei $3604339$ Startsignale gemessen wurden. 
+Der Untergrund lässt sich mithilfe der Poissonverteilung 
 \begin{equation*}
-    P(n) = \frac{\lambda^k \exp(-\lambda)}{k!}
+    P(n) = \frac{\lambda^k e^{-\lambda}}{k!}
 \end{equation*}
-bestimmen. Hier ist $\lambda$ der Erwartungswert welcher sich aus der Anzahl der Startsignalen $N_{start}$, der Messzeit $t_{Mess}$ und der Suchzeit $T_S = \SI{10}{\micro\second}$ über 
+bestimmen. Hier ist $\lambda$ der Erwartungswert der sich aus der Anzahl der Startsignale $N_\text{start}$, der Messzeit $t_\text{Mess}$ und der Suchzeit $T_S = \SI{10}{\micro\second}$ über 
 \begin{equation*}
-    \lambda = \frac{N_{start}}{t_{mess}} T_s  
+    \lambda = \frac{N_\text{start}}{t_\text{mess}} T_s  
 \end{equation*}
-bestimmen lässt. Der gesamte Untergrund, für genau ein eintreffendes Myon, ist dann gegeben durch 
+bestimmen lässt. Der gesamte Untergrund für genau ein eintreffendes Myon ist dann gegeben durch 
 \begin{equation*}
     U = P_{\lambda}(n=1) N_{start} = \num{716}  .
 \end{equation*}
-Dieser Verteilt sich gleichmäßig auf $511$ Channel, weshalb der Untergrund in einem Kanal gegeben ist durch 
+Der Untergrund verteilt sich gleichmäßig auf $511$ Channel, weshalb der Untergrund in einem Kanal gegeben ist durch 
 \begin{equation*}
     U_c = \frac{U}{511} =\num{1}  .
 \end{equation*}
-Im folgenden wird dieser Untergrund von den Messwerten abgezogen.
-Die gemessenen Counts, die zugehörige Kanalnummer und die zugeordnet Lebensdauer sind in Tabelle \ref{tab:Lebensdauer} eingetragen.
+Im Folgenden wird dieser Untergrund von den Messwerten abgezogen.
+Die gemessenen Counts, die zugehörige Kanalnummer und die zugeordnete Lebensdauer sind in Tabelle \ref{tab:Lebensdauer} aufgeführt.
 Nach dem Zerfallsgesetz \ref{eqn:Zerfall} gilt für den Logarithmus der Counts 
 \begin{equation*}
     \ln N = -\frac{t}{\tau} + \ln(N_0).
 \end{equation*}
-Hier ist $\tau $ die gesuchte Lebensdauer und $N_0$ die Anzahl der Myonen für $t=0$. Mit einem linearen Fit an den Logarithmus der Events lassen sich die Parameter bestimmen zu 
+Hierbei ist $\tau $ die gesuchte Lebensdauer und $N_0$ die Anzahl der Myonen für $t=0$. Mit einem linearen Fit an den Logarithmus der Events lassen sich die Parameter bestimmen zu 
 \begin{align*}
     \tau &= \SI{2.42(5)}{\micro\second} \\
-    N_0 &= \num{207(10)}.
+    N_0 &= \num{207(10)}
 \end{align*}
-Hier werden alle Channel mit $0$ Events vernachlässigt.
+wobei alle Channel mit $0$ Events vernachlässigt werden.
 Die Messwerte und die Fitgerade sind in Abbildung \ref{fig:Lebensdauer} logarithmisch aufgetragen.
 \begin{figure}
     \centering 
     \includegraphics[width = \linewidth]{lebensdauer.pdf}
-    \caption{Messwerte für die Bestimmung der Lebensdauer von Myonen. Aufgetragen sind die logarithmische Anzahl der Counts gegen die Zeitdifferenz zwischen eintreten in das Medium und Zerfall des Myon. Des Weiteren ist auch der berechnete lineare Fit abgebildet. }
+    \caption{Messwerte für die Bestimmung der Lebensdauer von Myonen. Aufgetragen sind die Anzahl der Counts in logartihmischer Darstellung gegen die 
+    Zeitdifferenz zwischen dem Eintreten in das Medium und dem Zerfall des Myons. 
+    Zusätlich abgebildet ist der berechnete lineare Fit.}
     \label{fig:Lebensdauer}
 \end{figure}
 
 \begin{table}
     \centering
+    \caption{ Aufgenommene Messwerte für die Anzahl der Events in den Channels des MCA. Außerdem ist die zugeordnete Zeit$t$, aus \ref{eqn:kali}, eingetragen. Die Channel $228-511$ hat keine Events und sind deshalb nicht eingetragen }
+
     \resizebox*{!}{\textheight}{ \begin{tabular}{@{}lll|lll|lll|lll@{}}
     \toprule
      Channel  & Events&$t /  \si{\micro\second}$ &Channel  & Events&$t /  \si{\micro\second}$ &Channel  & Events&$t /  \si{\micro\second}$ &Channel  & Events&$t /  \si{\micro\second}$  \\ \midrule
@@ -188,7 +196,7 @@ Die Messwerte und die Fitgerade sind in Abbildung \ref{fig:Lebensdauer} logarith
      54 & 2.8 & 69.0 & 111 & 5.3 & 10.0 & 168 & 7.8 & 7.0 & 225 & 10.3 & 6.0  \\ 
      55 & 2.8 & 67.0 & 112 & 5.3 & 24.0 & 169 & 7.8 & 14.0 & 226 & 10.3 & 6.0  \\ 
      56 & 2.9 & 66.0 & 113 & 5.4 & 18.0 & 170 & 7.9 & 8.0 & 227 & 10.3 & 4.0  \\ 
+     \bottomrule
     \end{tabular}}
-    \caption{ Aufgenommene Messwerte für die Anzahl der Events in den Channels des MCA. Außerdem ist die zugeordnete Zeit$t$, aus \ref{eqn:kali}, eingetragen. Die Channel $228-511$ hat keine Events und sind deshalb nicht eingetragen }
     \label{tab:Lebensdauer}
 \end{table}
