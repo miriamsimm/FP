@@ -160,8 +160,8 @@ print(np.mean(d),np.std(d),np.std(d)/np.mean(d))
 
 
 
-#factor = y[x == 0.1950]   # Faktor um die Messwerte zu normalisieren
-factor = param[1]
+factor = y[x == 0.1950]   # Faktor um die Messwerte zu normalisieren
+#factor = param[1]
 y = y/factor
 
 
@@ -300,3 +300,22 @@ plt.close()
 
 
 
+
+###### Manuelle Anpassung der Parameter ##########
+#param_0 = [5.7e-8,5.1e-6,1.7e-7,0.5e-7, 60e-7,8e-10,3e-10]
+
+#param_0 = [8.55e-8,0.7e-6,6.7e-7,0, 0,8e-10,5.7e-10]
+
+## BESTER WERTE param_0 = [8.2e-8,6.7e-6,7e-6,0.1e-8, 5e-8,7.5e-10,6.1e-10]
+
+param_0 = [8.25e-8,6.7e-6,7e-6,0.1e-8, 5e-8,7.5e-10,6.5e-10]
+plt.plot(x,y,label = "normierte Messkurve",color = "blue")
+plt.plot(xplot,parrat(xplot,*param_0),label = "Fitkurve",color = "orange")
+plt.xlim(0,2.5)
+plt.ylim(1e-9,100)
+plt.yscale("log")
+plt.xlabel(r"$\theta$[°]")
+plt.ylabel(r"Intensität  [rel. Ein.]")
+plt.legend(loc = "best")
+plt.savefig("plots/parrat_man.pdf")
+plt.close()
