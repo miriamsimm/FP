@@ -310,7 +310,7 @@ plt.close()
 
 param_0 = [8.25e-8,6.7e-6,7e-6,0.1e-8, 5e-8,7.5e-10,6.5e-10]
 plt.plot(x,y,label = "normierte Messkurve",color = "blue")
-plt.plot(xplot,parrat(xplot,*param_0),label = "Fitkurve",color = "orange")
+plt.plot(xplot,parrat(xplot,*param_0),label = "Theoriekurve",color = "orange")
 plt.xlim(0,2.5)
 plt.ylim(1e-9,100)
 plt.yscale("log")

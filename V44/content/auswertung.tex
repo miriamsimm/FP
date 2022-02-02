@@ -87,7 +87,7 @@ Anschließend können aus den differenzen $\Delta \theta_i = \theta_i - \theta_{
     \caption{Werte für die Minima abgelesen auf Abbildung \ref{fig:reflekt_norm} und die berechneten Winkeldifferenzen $\Delta \theta$, Wellenvektorüberträge $\Delta q$ und die Schichtdicken $d$. In der letzten Zeile sind die Mittelwerte und Standardabweichungen, welche aus den $10$ Messwerten berechnet wurden, eingetragen.}
     \label{tab:minima}
 \end{table} 
-Um das Dispersionsprofil der Probe zu bestimmen, wird der sogenannte Parrat-Algorithmus benutzt, wobei auch die Rauigkeit der Oberfläche berücksichtigt wird. 
+Um das Dispersionsprofil der Probe zu bestimmen, wird der sogenannte Parratt-Algorithmus benutzt, wobei auch die Rauigkeit der Oberfläche berücksichtigt wird. 
 Dies ermöglicht die Durchführung eines Fittes der freien Parameter $n_i = 1 -\delta_i +i\beta_i $, die Schichtdicke $z$ und die Rauigkeit $\sigma_i$, wobei $i = 1,2$ für die verschiedenen Schichten( PS und Si) steht. 
 Ein allgemeiner Fit an die $5$ Parameter war nicht möglich, weshalb Parameterbereiche und Startwerte als zusätzliche Annahme eingeführt wurden. Diese basieren auf den Werten von der Anleitung \cite{kiessig}. Für den Fit wurde die \texttt{curve\_fit}-Funktion aus \texttt{Scipy} \cite{scipy} benutzt. 
 Des weiteren waren die Unsicherheiten auf die Rauigkeiten $\sigma_i$ sehr groß, weshalb ein weiterer Fit durchgeführt wurde, bei welchem $\sigma_1 = \sigma_2$ angenommen wurde. Zuletzt wurde noch ein Fit durchgeführt, bei welchem die Rauigkeiten $\sigma_i$ vernachlässigt wurden. 
@@ -113,12 +113,12 @@ Die berechneten kritischen Winkel $\theta_c$, basierend auf Formel \ref{eqn:krit
      rel. Fehler  [\%]            &\num{22.67} &\num{1.54} &\num{0.04} &\num{0.08} &\num{0.05} &– &– \\ \bottomrule
     \end{tabular}
     \end{adjustbox}
-    \caption{Ergebnisse der verschiedenen Fits der Daten an die Theoriekurve, welche mit dem Parrat-Algorithmus berechnet wurde. Die generelle Vorgehensweise und Annahmen der verschiedenen Fits ist im Detail im Fließtext erläutert. Hier zeigt die erste Zeile jeweils die angenommenen Parameterbereiche, die zweite Zeile die Startwerte und die dritte Zeile die gefitteten Werte. Des Weiteren sind auch die relativen Fehler eingetragen um die generelle Sensitivität auf die verschiedenen Parameter darzustellen. }
+    \caption{Ergebnisse der verschiedenen Fits der Daten an die Theoriekurve, welche mit dem Parratt-Algorithmus berechnet wurde. Die generelle Vorgehensweise und Annahmen der verschiedenen Fits ist im Detail im Fließtext erläutert. Hier zeigt die erste Zeile jeweils die angenommenen Parameterbereiche, die zweite Zeile die Startwerte und die dritte Zeile die gefitteten Werte. Des Weiteren sind auch die relativen Fehler eingetragen um die generelle Sensitivität auf die verschiedenen Parameter darzustellen. }
     \label{tab:fit}
 \end{table} 
 \begin{figure}
     \includegraphics{plots/parrat.pdf}
-    \caption{Erneute Abbildung des Reflektivitätsscans und die Fitkurve erstellt mithilfe des Parrat-Algorithmus, basierend auf dem Allgemeinen Fit 1. Aufgetragen ist die Intensität normiert auf die Amplitude $A$ als Funktion des Winkels $\theta$. }
+    \caption{Erneute Abbildung des Reflektivitätsscans und die Fitkurve erstellt mithilfe des Parratt-Algorithmus, basierend auf dem Allgemeinen Fit 1. Aufgetragen ist die Intensität normiert auf die Amplitude $A$ als Funktion des Winkels $\theta$. }
     \label{fig:fit}
 \end{figure}
 \begin{table}
@@ -133,3 +133,19 @@ Die berechneten kritischen Winkel $\theta_c$, basierend auf Formel \ref{eqn:krit
     \caption{Die berechneten kritischen Winkel $\theta_c$ basierend auf Formel \ref{eqn:krit} und den Werten $\delta_i$ aus Tabelle \ref{tab:fit}. Erneut sind diese für die verschiedenen Fits berechnet worden. Hier steht PS für die Polysterol-Schicht und Si für den Silizium-Wafer.  }
     \label{tab:winkel}
 \end{table} 
+Zuletzt wurde noch ein Theoriekurve erstellt, in welcher die Werte manuell angepasst wurden. Dies ist in Abbildung \ref{fig:man} abgebildet und die Werte sind gegeben durch
+\begin{align*}
+    z &= \SI{82.5}{\nm} \\
+    \delta_1 &=\num{6.7e-6} \\
+    \delta_2 &=\num{7e-6} \\
+    \beta_1 &= \num{1e-9}\\ 
+    \beta_2 &=\num{5e-8} \\
+    \sigma_1 &= \SI{7.5e-10}{\metre} \\
+    \sigma_2 &= \SI{6.5e-10}{\metre} .
+\end{align*}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{plots/parrat_man.pdf}
+    \caption{Messwerte und Theoriekurve für die Reflektivität als funktion von $\theta$. Die Werte wurden auf das Reflektionsplateau normiert. Die Theoriekurve basiert auf den Parratt-algorithmus, wobei die freien Parameter solange angepasst wurden, bis die Kurve relativ gut mit den Messwerten übereinstimmt.}
+    \label{fig:man}
+\end{figure}
