@@ -1,0 +1,14 @@
+backend : pgf
+
+font.family : serif
+
+font.size : 11
+legend.fontsize : medium
+xtick.labelsize : 9
+ytick.labelsize : 9
+
+pgf.rcfonts : False
+
+text.usetex : True
+pgf.texsystem : lualatex
+pgf.preamble : \input{/Users/Miriam/Desktop/FP/V49/header-matplotlib.tex}

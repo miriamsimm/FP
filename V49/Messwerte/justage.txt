@@ -1,0 +1,9 @@
+f = 21.71842
+phi = 122° Phase
+x = -1.24
+y = -4.95
+z = 3.9
+z2 = -2.63
+Pulslänge:
+2.7 mikrosek. -90°
+5.0 mikrosek. -180°
