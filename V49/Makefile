@@ -1,11 +1,15 @@
 all: build/main.pdf
 
-# hier Python-Skripte:
-#build/plot.pdf: plot.py matplotlibrc header-matplotlib.tex | build
-#	TEXINPUTS=$$(pwd): python plot.py
+figures/T_1.pdf: T_1.py matplotlibrc header-matplotlib.tex 
+	python T_1.py
 
-# hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-#build/main.pdf: build/plot.pdf
+figures/T_2.pdf: T_2.py matplotlibrc header-matplotlib.tex 
+	python T_2.py
+
+figures/echo.pdf figures/fourier_plot.pdf figures/fourier_trafo.pdf: diffusion.py matplotlibrc header-matplotlib.tex 
+	python diffusion.py
+
+build/main.pdf: figures/T_1.pdf figures/T_2.pdf figures/echo.pdf figures/fourier_plot.pdf figures/fourier_trafo.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

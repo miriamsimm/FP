@@ -7,10 +7,7 @@ import scipy.constants as const
 import csv
 
 #----------Messwerte auslesen----------
-data = np.genfromtxt('Messwerte/fourier.csv', delimiter=',', unpack=True)
-times = data[0]
-real = data[1]
-imag = data[2]
+times, real, imag = np.genfromtxt('Messwerte/fourier.csv', delimiter=',', unpack=True)
 t_echo, U_echo = np.genfromtxt('Messwerte/echo.csv', delimiter=',', unpack=True)
 
 T_2 = 1.37
@@ -27,7 +24,19 @@ T_D = ufloat(parameters[0], uncertainties[0])
 M_0 = ufloat(parameters[1], uncertainties[1])
 M_1 = ufloat(parameters[2], uncertainties[2])
 
-print('Parameter Messung Diffusion:', '\n', 'T_D = ', T_D, ' s', '\n', 'M_0 = ', M_0, ' V', '\n', 'M_1 = ', M_1, ' V', '\n', )
+#print('Parameter Messung Diffusion:', '\n', 'T_D = ', T_D, ' s', '\n', 'M_0 = ', M_0, ' V', '\n', 'M_1 = ', M_1, ' V', '\n', )
+
+file = open('Messwerte/Ergebnisse.txt', 'a')
+file.write('Parameter Messung Diffusion: \n')
+input_M_O = '{} {} {} \n'.format('M_0 = ', M_0, ' V')
+input_M_1 = '{} {} {} \n'.format('M_1 = ', M_1, ' V')
+input_T_D = '{} {} {} \n'.format('T_D = ', T_D, ' s')
+blankspace = '{} \n'.format(' ')
+file.write(input_M_O)
+file.write(input_M_1)
+file.write(input_T_D)
+file.write(blankspace)
+file.close()
 
 t_values = np.linspace(t_echo[0]-1e-5, t_echo[-1]+1e-4, 1000)
 t_values_log = np.linspace(t_echo[0]-1e-5, t_echo[-1]+1e-4, 1000)
@@ -36,7 +45,7 @@ plt.figure()
 plt.subplot(2, 1, 1)
 plt.title(r'Logarithmische Darstellung')
 plt.xlabel(r'$\tau^3 / \, \si{\micro\second}$')
-plt.ylabel(r'$\ln (M(\tau)) -2\tau / \, T_2$')
+plt.ylabel(r'$\ln (U(\tau)) -2\tau / \, T_2$')
 plt.plot(t_echo**3*1e6, np.log(U_echo)-2*t_echo/T_2, 'gx', label = r'Messwerte')
 plt.plot(t_values_log**3*1e6, np.log(echo(t_values_log, *parameters))-2*t_values_log/T_2, '-', label = r'Fitfunktion')
 plt.xscale('log')
@@ -46,7 +55,7 @@ plt.grid()
 plt.subplot(2, 1, 2)
 plt.title(r'Standard-Darstellung')
 plt.xlabel(r'$\tau^3 / \, \si{\micro\second}$')
-plt.ylabel(r'$\ln (M(\tau)) -2\tau / \, T_2$')
+plt.ylabel(r'$\ln (U(\tau)) -2\tau / \, T_2$')
 plt.plot(t_echo**3*1e6, np.log(U_echo)-2*t_echo/T_2, 'gx', label = r'Messwerte')
 plt.plot(t_values**3*1e6, np.log(echo(t_values, *parameters))-2*t_values/T_2, '-', label = r'Fitfunktion')
 plt.legend(loc = 'best')
@@ -114,7 +123,7 @@ freqs = np.fft.fftshift(np.fft.fftfreq(len(compsignal), times[1]-times[0]))
 #Speichern des Ergebnisses als txt-Datei
 np.savetxt('Messwerte/fourier_echo_gradient.txt', np.array([freqs, np.real(fftdata), np.imag(fftdata)]).transpose())
 #Erstellen eines Plots
-plt.figure()
+plt.figure(figsize=(6.4,4.0))
 plt.hlines(0, -8.825151682294324928, 6.618863761720744151, linestyles='dashed', color='black', linewidth=1,  label=r'Durchmesser $d_f$')
 plt.plot(freqs[(freqs>-15000) & (freqs<15000)]*1e-3, np.real(fftdata)[(freqs>-15000) & (freqs<15000)], 'x', label="Fourier-Transformation")
 plt.xlabel(r'$f / \, \mathrm{kHz}$')
@@ -130,6 +139,18 @@ gamma = const.value('proton gyromag. ratio') #[1/sT], gyromagnetisches Verhältn
 g = 2 * np.pi * d_f /d_Probe /gamma #[T/m]
 tau = 0.2e-3 #[s]
 D = 3/2 /T_D /gamma**2 /g**2 #[m^2/s]
-print('Durchmesser: ', d_f, ' Hz')
-print('Gradientenstärke: ', g, ' T/m')
-print('Diffusionskonstante: ', D, 'm^2/s')
+#print('Durchmesser: ', d_f, ' Hz')
+#print('Gradientenstärke: ', g, ' T/m')
+#print('Diffusionskonstante: ', D, 'm^2/s')
+
+file = open('Messwerte/Ergebnisse.txt', 'a')
+file.write('Parameter Messung Diffusion: \n')
+input_Durchmesser = '{} {} {} \n'.format('Durchmesser: ', d_f, ' Hz')
+input_Gradient = '{} {} {} \n'.format('Gradientenstärke: ', g, ' T/m')
+input_Diffusionskonstante = '{} {} {} \n'.format('Diffusionskonstante: ', D, ' s')
+blankspace = '{} \n'.format(' ')
+file.write(input_Durchmesser)
+file.write(input_Gradient)
+file.write(input_Diffusionskonstante)
+file.write(blankspace)
+file.close()
