@@ -1,1 +1,47 @@
+\section{Zielsetzung}
+In dem Versuch "Gepulste Kernspinresonanz" wird das Relaxionsverhalten der Spin-Spin und Spin-Gitter Wechselwirkungen einer Wasserprobe untersucht.
+Anschließend kann das Diffusionsverhalten von Wasser untersucht werden.
 \section{Theorie}
+Atomkerne haben einen Gesamtdrehimpuls $\vec{J}$, welcher sich aus dem Spin $\vec{S}$ und dem Bahndrehimpuls $\vec{L}$ zusammensetzen.
+Ein Teilchen mit nicht verschiedene Drehimpuls induziert auch ein magnetisches moment $\vec{\mu}$. Der proportionalitätsfaktor ist durch $\gamma$, der gyromagnetische Faktor, gegeben.
+Im folgenden Versuch wird Wasser untersucht, was hauptsächlich aus Wasserstoffkerne mit $ j = \frac{1}{2}$ besteht.
+Hierführ ist der Faktor \cite{} gegeben durch 
+%\begin{equation*}
+%    \gamma_p = 2 \pi SI{42.56}{\megahertz\per\tesla}.
+%\end{equation*} 
+Bei anlegen eines magnetischen Feldes $\vec{B}$ richten sich die einzelnen magnetischen Momente $\vec{\mu_i}$ an dem äusseren Magnetfeld aus, da dies energetisch günstiger ist.
+Dies führt zu einer makroskopischen Magnetisierung 
+\begin{equation*}
+    \vec{M} = \sum_i \vec{\mu}_i.
+\end{equation*}
+Das wirkende Drehmoment führt zu einer Rotation des Spins um die Achse des Magnetfeldes. Dies geschieht mit einer Winkelgeschwindigkeit $\omega_L = \gamma |\vec{B}|$, welche auch als Lamorfrequenz bezeichnet wird.
+Wird nun ein weiteres Magnetfeld $\vec{B}_1 $ orthogonal zu $\vec{B}_0$ für eine Zeit $t_p$ hinzugeschaltet, beginnt der Spin resonant zu präzedieren. 
+Der Spin wird dabei um einen Winkel $\theta = \gamma |\vec{B_1} t_p|$ abgelenkt. Anschließend relaxiert der Spin durch zwei Effekte, welche durch die Blochschen Gleichungen 
+\begin{align}
+    \frac{\mathrm{d}Mx}{\mathrm{d}t} = \gamma B_0 M_y - \frac{M_x}{T_2}      \frac{\mathrm{d}My}{\mathrm{d}t} = -\gamma B_0 M_x - \frac{M_y}{T_2}  \quad     \frac{\mathrm{d}Mz}{\mathrm{d}t} =  \frac{M_0 - M_z}{T_2} 
+\end{align}  
+Hierbei ist $M_i $ die Magnetisierung in die jeweilige Richtung und $T_i$ sind Relaxionszeiten, welche zwei Effekte beschreiben.
+\subsection{Spin-Gitter-Relaxation}
+Die Energie eines Dipols wird minimal, wenn diese entlang des $\vec{B}$ ausgerichtet sind. Thermische Schwankungen führen dazu, dass die durch Radiowellenpulse angeregten Spins, wieder entlang der $z$-Achse relaxieren. Hierbei wird Energie an das Gitter abgegeben, weshalb dies als Spin-Gitter-Relaxation bezeichnet wird, welche durch die Zeitkonstante $T_1$ charakterisiert ist.
+Die longitudinale Magnetisierung ist gegeben durch
+\begin{equation}
+    M_{z} (\tau) = M_0 \left( 1- 2 \exp(-\frac{\tau}{T_1} ) \right) ,
+\end{equation}
+wobei $M_0$ die Startmagnetisierung ist.
+\subsection{Spin-Spin-Relaxation}
+Anregung durch einen $90°$ Impuls in der $xy$-Ebene, führt zu einem weiteren Relaxationsprozess, welcher durch $T_2$ charakterisiert ist.
+Dies geschieht, weil das äußere Magnetfeld immer kleine Inhomogenitäten aufweist, welche zu einer Dephasierung des präzedierenden Kernspins führt.
+Das sich die Kernspins hier gegenseitig beeinflussen, wird dies als Spin-Spin-Relaxation bezeichnet.
+Es ergibt sich ein Exponentialgesetz 
+\begin{equation}
+    \label{eqn:T2}
+    M_{x,y}(\tau) = M_0 \exp\left(\frac{-2\tau}{T_2} \right) 
+\end{equation}
+für die Transversale Magnetisierung.
+\subsection{Diffusionsverhalten}
+Brownsche Molekularbewegung führt dazu, dass die Probe Diffundiert und ermöglicht diesen ortsänderlichen Prozess zu untersuchen.
+Hierführ muss ein Feldgradient eingeführt werden, welcher es ermöglicht die nun ortsabhängige  Lamorfrequenz zu messen. 
+Dies führt zu einer Modifikation von Formel \ref{eqn:T2} zu
+\begin{equation}
+    M_{x,y}(2\tau) = M_0 \exp\left(-\frac{2\tau}{T_2}\right) \exp \left(-\frac{2D\gamma^2 G^2 \tau^3}{3}\right).
+\end{equation}

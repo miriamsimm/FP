@@ -11,4 +11,4 @@ pgf.rcfonts : False
 
 text.usetex : True
 pgf.texsystem : lualatex
-pgf.preamble : \input{/Users/Miriam/Desktop/FP/V49/header-matplotlib.tex}
+pgf.preamble : \input{/home/daniel/Documents/GitHub/FP/V49/header-matplotlib.tex}
