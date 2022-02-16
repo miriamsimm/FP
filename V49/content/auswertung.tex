@@ -11,12 +11,12 @@ verwendet, die Fehlerrechnung wird mit dem Paket \textit{uncertainties} \cite{un
 Zur Bestimmung der Spin-Gitter-Relaxationszeit $T_1$ wird für die genommen Messwerte, aufgeführt in Tabelle 
 \ref{tab:T_1}, eine Ausgleichsrechnung mit der Funktion 
 \begin{equation*}
-    U(t) = M_0 \cdot \left(1 - 2 e^{-\frac{t}{T_1}}\right) + M_1
+    U(t) = M_0 \cdot \left(1 - 2 e^{-\frac{t}{T_1}}\right) 
 \end{equation*}
 durchgeführt \cite{Finke}. Die Messwerte und die Ausgleichskurve sind in Abbildung \ref{fig:T_1} dargestellt.
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{figures/T_1.pdf}
+    \includegraphics[width=0.9\linewidth]{figures/T_1.pdf}
     \caption{Gemessene Spannungsamplituden $U$, aufgetragen gegen die Pulsabstände $\tau$. Ebenfalls dargestellt
             ist die berechnete Ausgleichskurve. Die $x$-Achse ist logarithmiert.}
     \label{fig:T_1}
@@ -44,7 +44,7 @@ durchgeführt. Die Ausgleichsparameter sind
 \end{align}
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{figures/T_2.pdf}
+    \includegraphics[width=0.9\linewidth]{figures/T_2.pdf}
     \caption{Gemessene Spannungsamplituden $U$, aufgetragen gegen die Pulsabstände $\tau$. Verwendet wird die 
             Meiboom-Gill-Methode, sodass nur die Spannungsamplituden zu geradzahligem Vielfachen
             von $2 \tau$ dargestellt sind und in der Ausgleichsrechnung berücksichtig werden. Ebenfalls dargestellt
@@ -56,7 +56,7 @@ Spannungsamplituden $U$ für die Carr-Purcell-Methode dargestellt, wobei der Pul
 beträgt.
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{Messwerte/Carr_Purcell.png}
+    \includegraphics[width=0.9\linewidth]{Messwerte/Carr_Purcell.png}
     \caption{Oszilloskopbild des zeitlichen Verlaufs der Spannungsamplituden $U$ bei Verwendung der 
             Carr-Purcell-Methode. Der Pulsabstand ist $\tau = 22 \text{ ms}.$}
     \label{fig:Carr_Purcell}
@@ -77,7 +77,7 @@ Zur besseren Übersicht über die Messwerte und die Ausgleichskurve ist der Verl
 linearer Plot (unten), als auch mit logarithmierter $x$-Achse (oben) dargestellt.
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{figures/echo.pdf}
+    \includegraphics[width=0.9\linewidth]{figures/echo.pdf}
     \caption{Darstellung der Spannungsamplituden in Abhängigkeit der Pulsabstände. Aufgetragen ist die 
     Funktion $\ln (U(\tau)) - 2 \frac{\tau}{T_2}$ gegen $\tau^3$.
     Zur besseren Übersicht über die Messwerte und die Ausgleichskurve ist der Verlauf sowohl als 
@@ -102,7 +102,7 @@ Der Pulsabstand ist $\tau = 0.2 \text{ ms}$. Die gestrichelte vertikale Linie ke
 dem die Messdaten abgeschnitten werden.
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{figures/fourier_plot.pdf}
+    \includegraphics[width=0.9\linewidth]{figures/fourier_plot.pdf}
     \caption{Zeitlicher Verlauf des Real- und Imaginärteils der gemessenen 
     Spannungsamplituden vor der Modifikation der Messdaten (oben) und danach (unten) dargestellt. 
     Der Pulsabstand ist $\tau = 0.2 \text{ ms}$. Die gestrichelte vertikale Linie kennzeichnet den Punkt, bis zu 
@@ -117,7 +117,7 @@ sehr nah an der $x$-Achse befinden (gekennzeichnet durch die gestrichelte Linie)
 \end{equation*}
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{figures/fourier_trafo.pdf}
+    \includegraphics[width=0.9\linewidth]{figures/fourier_trafo.pdf}
     \caption{Fouriertransformierte des Spektrums zur Bestimmung der Gradientenfeldstärke.
     Der Abstand $d_f$ ist gekennzeichnet durch die gestrichelte Linie (siehe Text).}
     \label{fig:fourier_trafo}
@@ -134,7 +134,7 @@ zu
 \end{equation*}
 
 Mit der Gradientenstärke und Diffusionszeit kann nun die Diffusionskonstante $D$ bestimmt werden. 
-Diese berechnet sich nach Formel \ref{eq:diffusionskonstante}. Aufgrund der Ausgleichsrechnung 
+Diese berechnet sich durch Umstellen von Formel \ref{eq:diffusionskonstante}. Aufgrund der Ausgleichsrechnung 
 muss diese Formel modifiziert werden zu 
 \begin{equation*}
     D = \frac{3}{2} \frac{1}{\gamma^2 G^2 T_D^*} \, .
