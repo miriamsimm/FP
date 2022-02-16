@@ -1,8 +1,8 @@
 \section{Auswertung}
 Im Folgenden wird zunächst die Spin-Gitter-Relaxationszeit $T_1$
 und Spin-Spin-Relaxationszeit $T_2$ bestimmt. Mit diesen Ergebnissen erfolgt anschließend die Bestimmung
-der Diffusionskonstanten und des Molekülradius von Wasser. Aufgrund der vielen genommen Messwerte sind die entsprechenden 
-Messwerttabellen im Anhang aufgefüht und werden in den jeweiligen Auswertungsteilen referenziert. 
+der Diffusionskonstante von Wasser. Aufgrund der vielen Messwerte sind die entsprechenden 
+Messwerttabellen im Anhang aufgeführt und werden in den jeweiligen Auswertungsteilen referenziert. 
 Die Auswertung erfolgt mit der Programmiersprache \textit{Python} und den Paketen \textit{SciPy} \cite{SciPy} und
 \textit{NumPy} \cite{NumPy}. Für die Datenvisualisierung wird das Paket \textit{Matplotlib} \cite{Matplotlib} 
 verwendet, die Fehlerrechnung wird mit dem Paket \textit{uncertainties} \cite{uncertainties} automatisiert.
@@ -96,20 +96,20 @@ des Spektrums des Otto-Hahn-Verfahrens ermittelt werden.
 Dazu werden die mit dem Oszilloskop aufgenommenen Messdaten modifziert indem eine Phasenkorrektur durchgeführt wird und das Signal so 
 abgeschnitten wird, dass es genau beim Maximum des Realteils beginnt. Außerdem wird die Amplitude des ersten
 Messpunktes halbiert.
-In Abbildung \ref{fig:fourier_plot} ist der zeitliche Verlauf des Real- und Imagninärteils der gemessenen 
+In Abbildung \ref{fig:fourier_plot} ist der zeitliche Verlauf des Real- und Imaginärteils der gemessenen 
 Spannungsamplituden vor der Modifikation der Messdaten (oben) und danach (unten) dargestellt. 
 Der Pulsabstand ist $\tau = 0.2 \text{ ms}$. Die gestrichelte vertikale Linie kennzeichnet den Punkt, bis zu 
 dem die Messdaten abgeschnitten werden.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{figures/fourier_plot.pdf}
-    \caption{Zeitlicher Verlauf des Real- und Imagninärteils der gemessenen 
+    \caption{Zeitlicher Verlauf des Real- und Imaginärteils der gemessenen 
     Spannungsamplituden vor der Modifikation der Messdaten (oben) und danach (unten) dargestellt. 
     Der Pulsabstand ist $\tau = 0.2 \text{ ms}$. Die gestrichelte vertikale Linie kennzeichnet den Punkt, bis zu 
     dem die Messdaten abgeschnitten werden.}
     \label{fig:fourier_plot}
 \end{figure}
-Das Fourier-transformierte Spektrum ist in Abbildung \ref{fig:fourier_trafo.pdf} dargestellt. Der Abstand $d_f$ der 
+Das Fourier-transformierte Spektrum ist in Abbildung \ref{fig:fourier_trafo} dargestellt. Der Abstand $d_f$ der 
 beiden Punkte, die sich bei möglichst niedrigen Beträgen der Frequenz $f$ im positiven und negativen Bereich
 sehr nah an der $x$-Achse befinden (gekennzeichnet durch die gestrichelte Linie), ist
 \begin{equation*}
@@ -141,5 +141,5 @@ muss diese Formel modifiziert werden zu
 \end{equation*}
 Die Diffusionskonstante ist dann 
 \begin{equation*}
-    D = (1,71 \pm 0,04) \cdot 10^{-9} \, \text{m}^2/\text{s} \, .
+    D = (1,71 \pm 0,04) \cdot 10^{-9} \, \frac{\text{m}^2}{\text{s}} \, .
 \end{equation*}

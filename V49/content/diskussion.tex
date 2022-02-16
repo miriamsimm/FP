@@ -1,1 +1,100 @@
 \section{Diskussion}
+Die Auswertung der Messdaten zur Bestimmung der Spin-Gitter-Relaxationszeit $T_1$ und Spin-Spin-Relaxationszeit 
+$T_2$ führt auf
+\begin{align*}
+    T_1 &= \SI{2.39(8)}{\second} \\
+    T_2 &= \SI{1.37(7)}{\second} \, .
+\end{align*}
+Das Verhältnis dieser Werte ist 
+\begin{equation*}
+    \frac{T_1}{T_2}_\text{Exp} = \num{1.74(11)} \, .
+\end{equation*}
+Wie in der Literatur \cite{MGL} ist der gemessene Wert für $T_1$ größer als der Wert für $T_2$.
+In Ref. \cite{Chang} findet sich das Verhältnis 
+\footnote[1]{Wird das Verhältnis mit den Ergebnissen in Tabelle 1 (Erste Zeile) aus Ref. \cite{Chang}
+direkt berechnet, so kann dieses Ergebnis nicht reproduziert werden, stattdessen berechnet sich das Verhältnis
+zu $T_1 / T_2 = \num{2.03(16)}$.}
+\begin{equation*}
+    \left(\frac{T_1}{T_2}\right)_\text{Lit} =1,85 \, .
+\end{equation*}
+Die Abweichung des experimentell bestimmten Verhältnisses vom Literaturwert beträgt $-5,95 \, \%$.
+Für die einzelnen experimentell bestimmten Werte für $T_1$ und $T_2$ ergibt sich bei
+Literaturwerten $T_1 = \num{3.09(15)}$ \cite{Chang} und 
+$T_2 = \num{1.52(93)}$ \cite{Chang} eine Abweichung von $-22,65 \, \%$ und $-9,87 \, \%$. Das Ergebnis der 
+$T_1$-Bestimmung weist also eine deutlich größere Abweichung vom Literaturwert auf als das Ergebnis der 
+$T_2$-Bestimmung. Dies ist auch in der Ausgleichsrechnung ersichtlich: Die Ausgleichsfunktion bei der $T_2$-Bestimmung 
+in Abb. \ref{fig:T_2} passt deutlich besser an die Messdaten als bei der $T_1$-Bestimmung, vgl. Abbildung \ref{fig:T_1}.
+Eine mögliche Ursache dieser Abweichungen ist die Temperaturabhängigkeit der Relaxationszeiten. 
+Die Messung wurde wie in der Literatur \cite{Chang}, \cite{MGL} bei Raumtemperatur
+durchgeführt, jedoch wurde die Temperatur nicht von außen gesteuert und kann so die Messung beeinflusst haben.
+So zeigen insbesondere die Ergebnisse in Ref. \cite{Krynicki} eine deutliche Abhängigkeit von $T_1$ von der
+Temperatur. Der hier bestimme Wert für $T_1$ weist die geringste Abweichung zum $T_1$-Wert aus \cite{Krynicki}
+bei $10 \, \si{\celsius}$ auf. Die Temperaturmessungen während des Experiments, aufgeführt in Tabelle \ref{tab:temperaturen}, zeigen jedoch deutlich, 
+dass Temperaturschwankungen während der Messung keine ausreichende Erklärung für die starke Abweichung von den 
+Literaturwerten sind. 
+\FloatBarrier
+\begin{table}[h]
+    \centering
+    \caption{Gemessene Temperaturen in der Apparatur zu verschiedenen Zeitpunkten des Experiments.}
+    \label{tab:temperaturen}
+    \begin{tabular}{S[table-format=2.1] l}
+        \toprule
+        {$T /\si{\celsius}$} & {Zeitpunkt} \\
+        \midrule
+        21.7 & {Vor der Justierung} \\
+        21.1 & {Nach der Justierung} \\
+        21.5 & {Nach der $T_1$-Messung} \\
+        22.5 & {Nach der Diffusionsmessung} \\ 
+        \bottomrule
+    \end{tabular}
+\end{table}
+\FloatBarrier
+\noindent
+Ein weiterer Grund für die Abweichungen der Ergebnisse von den Literaturwerten kann außerdem der Versuchsaufbau,
+insbesondere die verwendete Probe, sein. Die untersuchte Probe aus bidestilliertem Wasser ist in ein 
+Glasrörchen der Dicke $D = 4,2 \, \text{mm}$ eingeschmolzen. Glas ist hydrophil und wechselwirkt über die 
+Van der Waals-Wechselwirkung stark mit Wasser, sodass die Wassermoleküle in der Nähe der Probeninnenwand
+eine höhere Ordnung aufweisen. Diese Ordnung der Wassermoleküle kann zu verringerten Relaxationszeiten führen \cite{Chang}.
+Auf diese Weise können die Abmessungen des Probenröhrchens das Ergebnis beeinflussen. In der Vergleichsliteratur
+\cite{Chang} wird zu den Abmessungen der verwendeten Probe keine Angabe gemacht, sodass diese Werte möglicherweise
+nur bedingt mit den hier erlangten Resultaten vergleichbar sind. 
+Da aber die Vergleichswerte für $T_1$ bei $T = 20 \, \si{\celsius}$ aus den Referenzen \cite{Chang}, \cite{Krynicki}
+untereinander nur geringfügig verschieden sind, ist die Auswirkung dieses Effekts als weniger bedeutsam einzuschätzen.
+Desweiteren können jedoch auch eine fehlerhafte Justierung des Versuchsaufbaus und ungenaue Messungen zu 
+systematischen Messunsicherheiten führen und so die Genauigkeit der Ergebnisse beeinflussen.
+Nicht betrachtet wird zudem die Abhängigkeit von $T_2$ vom pH-Wert aufgrund von Wasserstoffbrückenbindungen \cite{MGL}.
+
+Die experimentelle Bestimmung der Diffusionskonstante führt auf 
+\begin{equation*}
+    D = (1,71 \pm 0,04) \cdot 10^{-9} \, \text{m}^2/\text{s} \, .
+\end{equation*}
+Der Literaturwert ist $D = (2,78 \pm 0,035) \cdot 10^{-9} \, \text{m}^2/\text{s}$  \cite{Chang}, 
+der experimentell bestimmte Wert weicht um $-38,49 \, \%$ vom Literaturwert ab.
+Als mögliche Ursache dieser Abweichung muss die Spin-Spin-Relaxationszeit in Betracht gezogen werden, die 
+hinreichend groß sein muss, damit die Messung zu sinnvollen Ergebnissen führt. Dies ist gewährleistet wenn 
+\begin{equation*}
+    T_2^3 \gg \frac{3}{2 D \gamma^2 g^2} \, .
+\end{equation*}
+In diesem Experiment ist 
+\begin{align*}
+    T_2^3 &= \num{2.57(39)} \, \text{s}^3 \\
+    \frac{3}{2 D \gamma^2 g^2} &= \num{1.642(38)} \cdot 10^{-6} \text{s}^3 \, .
+\end{align*}
+Das Verhältnis beider Größen ist
+\begin{equation*}
+    \frac{T_2^3}{\frac{3}{2 D \gamma^2 g^2}} \sim 10^7 \gg 1 \, ,
+\end{equation*}
+sodass diese Bedingung erfüllt ist.
+Auch hier müssen Messungenauigkeiten als Fehlerquelle in Betracht gezogen werden, besonders auch 
+in der Bestimmung der Diffusionszeit $T_D$, die in die Berechnung der Diffusionskonstante eingeht. 
+Erwartet wird, dass die Messwerte der Echohöhen auf einer Gerade liegen, vgl. unterer Plot in Abbildung \ref{fig:echo}.
+Diese Erwartung wird in guter Näherung erfüllt.
+Jedoch ist zu beachten, dass in der Ausgleichsrechnung zur Bestimmung von $T_D$ der zuvor ermittelte Wert $T_2$
+verwendet wird. Wie oben beschrieben, weicht dieser Wert jedoch deutlich von Vergleichwerten 
+in der Literatur ab und kann so das Ergebnis der Diffusionsmessung beeinflussen. Zudem ist auch die Bestimmung des Durchmessers 
+$d_f$, der über die Gradientenstärke $g$ quadratisch in die Formel zur Bestimmung des 
+Diffusionskonstanten eingeht, durch reines Ablesen aus der Fouriertransformation höchst ungenau und sollte 
+in Folgemessungen verbessert werden. 
+Es wäre außerdem interessant, bei der Bestimmung der Diffusionszeit
+in der Ausgleichsrechnung einen Literaturwert für $T_2$ zu verwenden und so analysieren zu können, wie 
+die Unsicherheiten bei der $T_2$-Messung das Ergebnis für die Diffusionskonstante beeinflussen.
