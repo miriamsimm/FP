@@ -1,21 +1,33 @@
 \section{Versuchsaufbau}
-Die Messung der Lebensdauer der Myonen erfolgt mit einem in eine Schaltung integrierten Szintillator.
-Ein Szintillator ist ein Detektor zum Nachweis ionsieriender Strahlung. Tritt diese in den Detektor ein, 
-wechselwirkt sie über Photoeffekt, Comptoneffekt und Paarbild mit den Atomen des Detektormaterials und gibt 
-Energie an den Detektor ab. Dabei entsteht über die verschiedenen Wechselwirkungsprozesse Licht, welches 
-mit zwei Photomultipliern (PMT) verstärkt und in ein elektrisches Signal umgewandelt wird.
-In diesem Versuch wird ein organischer Szintillator mit einem Volumen von 50l verwendet. Organische Szintillatoren
-haben gegenüber anorganischen Szintillatoren den Vorteil, dass sie eine geringere Ansprechzeit haben \cite{szintillatoren}.
+Die Messung der Lebensdauer der Myonen erfolgt mit einem Szintillationsdetektor, mit dem die Myonen 
+nachgewiesen werden können.
+Der Detektionsmechanismus beruht dabei auf der Anregung des Szintillatormaterials durch die einfallende ionisierende Strahlung.
+Die Anregungsenergie wird in Form von Szintillationslicht wieder abgegeben, welches 
+mit zwei Photomultipliern (PMT) detektiert und in ein elektrisches Signal umgewandelt wird.
+
+Es gibt sowohl organische als auch anorganische Szintillatoren, in diesem Versuch wird ein 
+organischer Szintillator mit einem Volumen von $\SI{50}{\liter}$ verwendet. Anorganische Szintillatoren sind mit 
+Aktivatorzentren dotierte Kristalle, bei denen die Entstehung von Szintillationslicht auf der Bandstruktur des Szintillators 
+beruht. Einfallende ionsieriende Strahlung erzeugt freie Elektronen, 
+freie Löcher oder Elektron-Loch-Paare, die durch den Festkörper wandern bis sie auf ein 
+Aktivatorzentrum treffen. Das Aktivatorzentrum wird angeregt und gibt bei der Rückkehr in den Grundzustand
+Licht ab. 
+Organische Szintillatoren sind Flüssigkeiten, Kristalle oder polymere Festkörper, in denen Szintillationslicht im UV-Bereich
+durch molekulare Übergänge entsteht. Aufgrund der geringen Reichweite von 
+UV-Strahlung im Szintillator sind organischen Szintillatoren weitere organische Stoffe als Wellenlängeschieber
+beigefügt \cite{szintillatoren1}, \cite{szintillatoren2}. 
+Organische Szintillatoren
+haben gegenüber anorganischen Szintillatoren den Vorteil, dass sie eine geringere Ansprechzeit haben \cite{szintillatoren3}.
 
 Die verwendete Schaltung ist in Abbildung \ref{fig:schaltung} dargestellt. 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\linewidth]{schaltung.png}
+    \includegraphics[width=0.6\linewidth]{schaltung.png}
     \caption{Schaltbild des Versuchsaufbaus zur Lebensdauermessung \cite{anleitung}.}
     \label{fig:schaltung}
 \end{figure}
-Das grundlegende Prinzip des Aufbaus ist, mit einer elektronischen Stoppuhr sowohl die Zeitdifferenz zwischen
-dem Eintreffen des Myons im Detektor sowie dem Zerfall des Myons zu messen. Erwartet werden zwei Signale, 
+Das grundlegende Messprinzip ist, mit einer elektronischen Stoppuhr die Zeit zwischen
+dem Eintreffen des Myons im Detektor und dem Zerfall des Myons zu messen. Erwartet werden zwei Signale, 
 eins durch das Myon selbst und ein zweites durch die Wechselwirkung der Zerfallsprodukte mit dem 
 Szintillatormaterial. 
 Die Schwierigkeit bei der Messung der Lebensdauer besteht darin, nur die Ereignisse herauszufiltern, bei 
@@ -24,12 +36,12 @@ Problematisch ist dabei, dass die Energie vieler eintreffender Myonen zu groß i
 zerfallen den Szintillator durchlaufen und somit kein Stoppsignal ausgelöst wird.
 Diese Schwierigkeit wird durch die beiden AND-Gatter, die Verzögerungsleitung und den Monoflop überwunden.
 Verlässt ein Spannungsimpuls die Koinzidenzschaltung, läuft sie zuerst auf die beiden linken Eingänge
-der AND-Gatter. Parallel läuft sie über eine Verzögerungsleitung mit $\Delta t = 30 \text{ ns}$ auf 
+der AND-Gatter. Parallel läuft sie über eine Verzögerungsleitung mit $\Delta t = \SI{30}{\nano\second}$ auf 
 den Monoflop. Dieser hat zwei Ausgänge, von denen einer invertiert ist. 
-Nur an dem Ausgang des Monoflops, der mit dem rechten AND-Gatter verbunden ist, liegt Spannung an, wenn 
-am Eingang des Monoflops Spannung anliegt, am anderen Ausgang liegt keine Spannung an. 
-Liegt keine Spannung am Monoflop an, ist die Situation entsprechend umgekehrt. 
-Innerhalb der Verzögerungszeit liegt also an beiden Eingängen des linken AND-Gatters
+%Nur an dem Ausgang des Monoflops, der mit dem rechten AND-Gatter verbunden ist, liegt Spannung an, wenn 
+%am Eingang des Monoflops Spannung anliegt, am anderen Ausgang liegt keine Spannung an. 
+%Liegt keine Spannung am Monoflop an, ist die Situation entsprechend umgekehrt. 
+Innerhalb der Verzögerungszeit liegt an beiden Eingängen des linken AND-Gatters
 Spannung an, wodurch die Zeitmessung mit dem  Time-Amplitude-Converter (TAC)
 gestartet wird und der Impulszähler das Signal als Startsignal zählt. Am Monoflop wird eine Suchzeit eingestellt,
 innerhalb derer das Stoppsignal eintreffen kann. Trifft innerhalb dieser Suchzeit ein zweites Signal 
