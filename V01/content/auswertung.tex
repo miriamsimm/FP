@@ -1,6 +1,6 @@
 \section{Auswertung}
 \subsection{Justage und Kalibration}
-Zunächst muss die optimale Verzögerungszeit $T_v$ bestimmt werden. Hierfür werden in einem $10 \text{ s}$-Intervall die Myonen-Counts aufgenommen, wobei die Verzögerung an den Diskriminatoren jeweils verstellt wird. Die aufgenommenen Messwerte sind in Tabelle \ref{tab:Verzögerung} eingetragen.
+Zunächst muss die optimale Verzögerungszeit $T_V$ bestimmt werden. Es werden jeweils in einem $\SI{10}{\second}$-Intervall die Myonen-Counts aufgenommen.Daraufhin wird die Verzögerung an den Diskriminatoren verstellt und erneut gemessen. Die aufgenommenen Messwerte sind in Tabelle \ref{tab:Verzögerung} eingetragen.
 \begin{table}
     \centering
     \caption{Messwerte zur bestimung der Verzögerungszeit. Für die Durchführung des Versuches wurde der Wert $T_V = \SI{-1}{\micro\second}$ gewählt. Die negative Zeitwerte stehen für eine Verzögerung am linken Diskriminator}
@@ -33,26 +33,45 @@ Zunächst muss die optimale Verzögerungszeit $T_v$ bestimmt werden. Hierfür we
     \end{tabular}
     \label{tab:Verzögerung}
 \end{table} 
-Im Folgenden wird die Halbwertsbreite bestimmt, wofür eine Gaussfunktion
-\begin{equation*}
-    f(t) = A\exp(- \frac{(t-\mu)^2}{2\sigma^2} )
-\end{equation*}
-verwendet wird. Die Fitwerte und die berechnete Halbwertsbreite $T_{1/2} =2\sqrt{2\ln2}\sigma$ sind gegeben durch 
-\begin{align*}
-    A &= \num{237(7)} \\
-    \mu &= \SI{0.6(4)}{\nano\second} \\
-    \sigma &= \SI{6.4(5)}{\nano\second} \\
-    T_{1/2} &= \SI{15.1(12)}{\nano\second}.
-\end{align*}
+An die Messwerte werden nun zwei Geraden an die beiden Flanken und eine Konstante an das Plateau gefittet. Dies entspricht den Signalen, welcher bei der Messung überlagert werden. Hierfür werden die Bereiche $(-12,-2)$ für die Linke Flanke, $(-2,4)$ für das Plateau und $(4,12)$ für die rechte Flanke gewählt. Die Wahl wurde getroffen um möglichst gute Übereinstimmung in den einzelnen Bereichen zu erhalten. 
+%Im Folgenden wird die Halbwertsbreite bestimmt, wofür eine Gaussfunktion
+%\begin{equation*}
+%    f(t) = A\exp(- \frac{(t-\mu)^2}{2\sigma^2} )
+%\end{equation*}
+%verwendet wird. Die Fitwerte und die berechnete Halbwertsbreite $T_{1/2} =2\sqrt{2\ln2}\sigma$ sind gegeben durch 
+%\begin{align*}
+%    A &= \num{237(7)} \\
+%    \mu &= \SI{0.6(4)}{\nano\second} \\
+%    \sigma &= \SI{6.4(5)}{\nano\second} \\
+%    T_{1/2} &= \SI{15.1(12)}{\nano\second}.
+%\end{align*}
 Die Messwerte und Fitkurve sind in Abbildung \ref{fig:Verzögerung} dargestellt. Die negative Zeitwerte stehen für eine Verzögerung am linken Diskriminator. 
-Für die nachfolgenden Auswertungsschritte wird jeweils eine Verzögerungszeit von $T_v = \SI{-1}{\second}$ gewählt.
+Das Plateau $ N_P$, die Steigung der Flanke $m_{L/R}$ und die Konstanten der Geraden $b_{L/R}$ wurden zu 
+\begin{align}
+    N_P &=  \num{227(8)} \\
+    m_L &=  \SI{19.4(16)}{\per \nano \second}  \\
+    b_L &=  \num{265(14)} \\
+    m_R &=  \SI{-23(2)}{\per \nano \second} \\
+    b_R &=  \num{320(16)}
+\end{align}
+bestimmt. Die Halbwertsbreite der einzelnen Flanken $\Delta T_{L/R}$ entspricht dem $\Delta t $, an welchem das halbe plateauniveau geschnitten wird. Die Werte sind gegeben durch 
+\begin{align*}
+    \Delta T_{L} &= -\SI{7.8(10)}{\nano \second} \\
+    \Delta T_{R} &= \SI{8.6(10)}{\nano \second} .
+\end{align*}
+Die Halbwertsbreite des Rechteckimpulses ist dann durch die Differenz $\Delta T_{R} - \Delta T_{L}$ gegeben und kann zu 
+\begin{equation*}
+    \Delta T_{1/2} = \SI{16.5(14)}{\nano \second}
+\end{equation*}
+berechnet werden.
+Für die nachfolgenden Auswertungsschritte wird jeweils eine Verzögerungszeit von $T_V = \SI{-1}{\second}$ gewählt.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{plot.pdf}
-    \caption{Messdaten zur Justage der Verzögerungszeit an den Diskriminatoren. Aufgetragen sind die Counts in Abhängigkeit von der eingestellten Verzögerungszeit. Negative Zeiten stehen für eine Verzögerung am linken Diskriminator. Zusätzlich ist auch der bestimmte Gauss-Fit abgebildet.}
+    \caption{Messdaten zur Justage der Verzögerungszeit an den Diskriminatoren. Aufgetragen sind die Counts in Abhängigkeit von der eingestellten Verzögerungszeit. Negative Zeiten stehen für eine Verzögerung am linken Diskriminator. Zusätzlich sind auch die im Fließtext beschriebenen Fits abgebildet.}
     \label{fig:Verzögerung}
 \end{figure} 
-Als nächstes wird die Kalibration durchgeführt. Die Messzeiten betragen erneut $\SI{10}{\second}$ und die Fitgerade für die Umrechnung der Kanalnummern in Messzeiten kann durch 
+Als nächstes wird die Kalibration durchgeführt. Als Messzeit wurden erneut $\SI{10}{\second}$ gewählt. Die Fitgerade, für die Umrechnung der Kanalnummern in Messzeiten, kann durch 
 \begin{equation}
     \label{eqn:kali}
     t(C) = AC + B
@@ -62,7 +81,7 @@ parametrisiert werden. Hierbei ist $t$ die Messzeit, $C$ die Kanalnummer und $A,
     A &= \SI{0.0437(13)}{\micro\second} \\
     B &= \SI{0.43(17)}{\micro\second}
 \end{align*}
-gegeben sind. Die Messwerte für die Kalibration sind in \ref{tab:kali} angegeben und in Abbildung \ref{fig:kali} mit der Fitgerade dargestellt.
+gegeben sind. Die Messwerte für die Kalibration sind in Tabelle \ref{tab:kali} angegeben und in Abbildung \ref{fig:kali} mit der Fitgerade dargestellt.
 Im Folgenden wird allen Kanalnummern mithilfe von Gleichung \ref{eqn:kali} die jeweilige Zeit zugeordnet.
 \begin{figure}
     \centering
@@ -98,18 +117,19 @@ Der Untergrund lässt sich mithilfe der Poissonverteilung
 \begin{equation*}
     P(n) = \frac{\lambda^k e^{-\lambda}}{k!}
 \end{equation*}
-bestimmen. Hier ist $\lambda$ der Erwartungswert der sich aus der Anzahl der Startsignale $N_\text{start}$, der Messzeit $t_\text{Mess}$ und der Suchzeit $T_S = \SI{10}{\micro\second}$ über 
+bestimmen. Hier ist $\lambda$ der Erwartungswert der sich aus der Anzahl der Startsignale $N_\text{start}$, der Messzeit $t_\text{Mess}$ und der Suchzeit $T_s = \SI{10}{\micro\second}$ über 
 \begin{equation*}
     \lambda = \frac{N_\text{start}}{t_\text{mess}} T_s  
 \end{equation*}
 bestimmen lässt. Der gesamte Untergrund für genau ein eintreffendes Myon ist dann gegeben durch 
 \begin{equation*}
-    U = P_{\lambda}(n=1) N_{start} = \num{716}  .
+    U = P_{\lambda}(n=1) N_{\text{start}} = \num{716}  .
 \end{equation*}
 Der Untergrund verteilt sich gleichmäßig auf $511$ Channel, weshalb der Untergrund in einem Kanal gegeben ist durch 
 \begin{equation*}
-    U_c = \frac{U}{511} =\num{1}  .
+    U_c = \frac{U}{511} =\num{1}  ,
 \end{equation*}
+wobei auf ganzzahlige Events gerundet wurde.
 Im Folgenden wird dieser Untergrund von den Messwerten abgezogen.
 Die gemessenen Counts, die zugehörige Kanalnummer und die zugeordnete Lebensdauer sind in Tabelle \ref{tab:Lebensdauer} aufgeführt.
 Nach dem Zerfallsgesetz \ref{eqn:Zerfall} gilt für den Logarithmus der Counts 

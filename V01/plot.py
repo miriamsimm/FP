@@ -80,14 +80,49 @@ print(2*np.sqrt(2*np.log(2))*sigma)
 xplot = np.linspace(-20,20,10000)
 
 plt.plot(xdata,ydata,"x",label = "Messwerte")
-plt.plot(xplot,Gauss(xplot, *par_koin),color = "blue",label = "Fitkurve ")
+#plt.plot(xplot,Gauss(xplot, *par_koin),color = "blue",label = "Fitkurve ")
 plt.xlabel(r"Verzögerungszeit $T_V$ / ns")
 plt.ylabel("Counts")
-plt.xlim(-20,20)
-plt.ylim(0,250)
+plt.xlim(-13,13)
+plt.ylim(0,300)
+xplot1 = np.linspace(-13,-2,1000)
+xplot2 = np.linspace(-2,4,1000)
+xplot3 = np.linspace(4,13,1000)
+
+par_min,cov_par_min = np.polyfit(xdata[0:6],ydata[0:6],1,cov=True)
+err_L = np.sqrt(np.diag(cov_par_min))
+links_m = ufloat(par_min[0],err_L[0])
+links_c = ufloat(par_min[1],err_L[1])
+par_const,cov_const = np.polyfit(xdata[6:18],ydata[6:18],0,cov=True)
+err_C = np.sqrt(np.diag(cov_const))
+plat = ufloat(par_const,err_C)
+par_pos,cov_pos = np.polyfit(xdata[17:22],ydata[17:22],1,cov=True)
+err_R = np.sqrt(np.diag(cov_pos))
+rechts_m = ufloat(par_pos[0],err_R[0])
+rechts_c = ufloat(par_pos[1],err_R[1])
+
+plt.plot(xplot1,par_min[0]*xplot1 + par_min[1],label = "lin. Fit an die Linke Flanke ")
+plt.plot(xplot2,par_const + xplot2*0,label = "konstanter Fit an das Plateau ")
+plt.plot(xplot3,par_pos[0]*xplot3 + par_pos[1],label = "lin. Fit an die Rechte Flanke  ")
+print("plateau:",par_const ,"+-", err_C  )
+print("Links:",par_min ,"+-", err_L  )
+print("Rechts:",par_pos ,"+-", err_R  )
+print("t_Links:", (plat/2 - links_c)/links_m )
+print("t_rechts:", (plat/2 - rechts_c)/rechts_m )
+print("t_1/2 : ",(plat/2 - rechts_c)/rechts_m -(plat/2 - links_c)/links_m  )
 plt.legend(loc = "best")
 plt.savefig("plot.pdf")
 plt.close()
+
+
+
+
+
+
+
+
+
+
 
 start = 3604339
 messzeit = 181285
