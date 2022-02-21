@@ -4,20 +4,35 @@
 %Erwartungswert $\mu = \SI{0.6(4)}{\nano\second}$ etwas ab. Der eingestellte Wert ist jedoch aussreichend gut 
 %gewählt, da dieser trotzdem auf dem Plateau\ref{fig:Verzögerung} liegt und diese Genauigkeit hinreichend ist.
 %Ein breites Plateau, welches bei der Justage bestimmt worden ist, ist in Abbildung \ref{fig:Verzögerung} gut erkennbar. 
-Die eingestellte Verzörgerungszeit von $T_V = \SI{-1}{\second}$ liegt etwas Links vom Zentrum des Plateaus, siehe Abbildung \ref{fig:Verzögerung}, welches in der Justage bestimmt worden ist.
-Für die optimale Verzögerung wäre ein Wert in Zentrum besser, damit die Eingänge der Koinzidenzschaltung das selbe Ergebnis messen. 
-Die Halbwertsbreite $\Delta T_{1/2} = \SI{16.5(14)}{\nano \second}$ hat eine Abweichung von $\SI{65}{\percent} $ zur voreingestellten Impulsbreite. Dies lässt sich erklären, dadurch dass die Schalter zum einstellen der Verzörgerungszeit nicht immer reagiert haben. 
-Es kann also nicht vollständig ausgeschlossen werden, dass die Werte für $\Delta t $ in \ref{tab:Verzögerung} tatsächlich am Gerät eingestellt waren.
-Der lineare Fit, welcher die Zeiten der Kanalnummer zuordnet, verlief ebenfalls wie erwartet. Es gibt einen 
-abweichenden Wert in Abbildung \ref{fig:kali}, sonst ist der lineare Zusammenhang jedoch nahezu ideal erfüllt. 
-Die Abweichung kann dadurch erklärt werden, dass die Kanalnummer aus einem Programm abgelesen 
-wird, wobei ein Peak mit endlicher Breite abgelesen werden musste. 
+Für die eingestellte Verzörgerungszeit von $T_V = \SI{-1}{\nano\second}$, um deren Wert das Plateau 
+in Abbildung \ref{fig:Verzögerung} bei optimaler Einstellung zentriert sein sollte, ist das 
+in der Justage bestimmte Plateau etwas nach rechts verschoben. Bei einer erneuten Messung sollte daher 
+eine Verzögerungszeit von etwa $\SI{1}{\nano\second}$ eingestellt werden, um zu gewährleisten,
+dass die Eingänge der Koinzidenzschaltung das gleiche Ergebnis messen. 
+
+%Die eingestellte Verzörgerungszeit von $T_V = \SI{-1}{\nano\second}$ liegt etwas links vom Zentrum des Plateaus, siehe Abbildung \ref{fig:Verzögerung}, welches in der Justage bestimmt worden ist.
+%Für die optimale Verzögerung wäre ein Wert in Zentrum besser, damit die Eingänge der Koinzidenzschaltung das selbe Ergebnis messen. 
+Die Halbwertsbreite $\Delta T_{1/2} = \SI{16.5(14)}{\nano \second}$ hat eine Abweichung von $\SI{65}{\percent} $ zur voreingestellten Impulsbreite $\Delta t = \SI{10}{\nano\second}$. 
+Ein möglicher Faktor, der zu dieser Abweichung geführt haben könnte, ist, dass die Schalter zum Einstellen der Verzörgerungszeit nicht immer fehlerfrei reagiert haben. 
+%Dies lässt sich dadurch erklären, dass die Schalter zum Einstellen der Verzörgerungszeit nicht immer reagiert haben. 
+Es kann daher nicht ausgeschlossen werden, dass die Werte für $t$ in Tabelle \ref{tab:Verzögerung} nicht mit 
+den tatsächlich am Gerät eingestellten Werten übereinstimmen.
+%Es kann daher nicht vollständig ausgeschlossen werden, dass die Werte für $\Delta t $ in \ref{tab:Verzögerung} tatsächlich am Gerät eingestellt waren.
+Der lineare Fit, welcher die Zeiten der Kanalnummer zuordnet, zeigt ebenfalls den erwarteten Verlauf. Es gibt einen 
+abweichenden Wert in Abbildung \ref{fig:kali}, sonst ist der lineare Zusammenhang jedoch nahezu perfekt gegeben. 
+Als Ursache für die beschriebene Abweichung müssen Fehler in der Versuchsdurchführung in Betracht gezogen werden.
+Die jeweiligen Kanalnummern wurden aus den Peaks des vom Vielkanalanalysator
+erstellten Histogramms abgelesen. Da diese Peaks eine endliche Breite aufweisen, ist es daher möglich, 
+dass die Kanalnummer des beschriebenen Werts nicht richtig zugeordnet wurde.
+
+%Der abweichende Wert kann dadurch erklärt werden, dass die Kanalnummer aus einem Programm abgelesen wird. 
 Die Bestimmung der Lebensdauer von $\tau = \SI{2.42(5)}{\micro\second}$ hat eine Abweichung von $\SI{10}{\percent}$ zum 
 Literaturwert $\tau_{\text{Lit}} = \SI{2.20}{\micro\second}$ \cite{PDG}. Die Abweichung kann 
 dadurch erklärt werden, dass die Messung der Lebensdauer in Materie stattgefunden hat. In Materie können 
-sich unter anderem Myonische Atome bilden, welche zusätzliche Lichtblitze erzeugen.
-Eine Bestimmung im Vakuum, bzw. in weniger dichten Materialen, könnte also zu besseren Ergebnisse 
-führen. Des weiteren hat der Vielkanalanlysator auch eine endliche Auflösung, welche zu Falschzuordnungen von einzelnen Events führen kann.
+sich unter anderem Myonische Atome bilden, welche zusätzliche Lichtblitze erzeugen, die dann 
+fehlerhaft detektiert werden.
+Eine Bestimmung im Vakuum oder in weniger dichten Materialen könnte also zu besseren Ergebnissen 
+führen. Desweiteren hat der Vielkanalanlysator auch eine endliche Auflösung, welche zu Falschzuordnungen von einzelnen Events führen kann.
 
 % Desweiteren kann auch die eingestellte Verzögerungszeit das Ergebnis beeinflussen. 
 %Hierbei ist auch anzumerken, dass die Schalter zum Einstellen der Verzögerungszeit nicht immer reagiert 
